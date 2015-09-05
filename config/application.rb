@@ -24,8 +24,5 @@ module Olympics
     config.active_record.raise_in_transactional_callbacks = true
 
     config.generators.test_framework :minitest, spec: true, fixture: false
-    # config.generators do |g|
-    #   g.test_framework :minitest, spec: true, fixture: false
-    # end
   end
 end
