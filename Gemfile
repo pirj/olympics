@@ -15,7 +15,6 @@ gem 'normalize-rails'
 
 group :assets do
   gem 'execjs', platforms: :ruby
-  # gem 'therubyracer', platforms: :ruby
   gem 'uglifier', '>= 1.3.0'
 end
 
@@ -28,7 +27,7 @@ gem 'turbolinks'
 # gem 'jbuilder', '~> 2.0'
 # gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'slim'
+gem 'slim-rails'
 gem 'formtastic'
 
 gem 'has_scope'
