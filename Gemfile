@@ -66,12 +66,13 @@ group :development do
   # gem 'spring'
 end
 
+gem 'factory_girl_rails' # Factories
 group :test do
   gem 'minitest-spec-rails'
   gem 'minitest-matchers_vaccine' # Non-intrusive matchers
   gem 'valid_attribute' # Sugar for attribute validity
+  gem 'shoulda-matchers'
 
-  gem 'factory_girl_rails' # Factories
   gem 'ffaker' # Fake data
-  gem 'database_cleaner' # Clean up between tests
+  # gem 'database_cleaner' # Clean up between tests
 end

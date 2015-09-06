@@ -15,5 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
-TZ.txt
+TZ.md
 config/*.yml
