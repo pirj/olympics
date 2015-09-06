@@ -1,47 +1,5 @@
 ru:
   activerecord:
-    errors:
-      messages:
-        required: должен существовать
-        taken: уже взят
-
-      format: %{attribute} %{message}
-
-      messages:
-        model_invalid: Ошибка валидации: %{errors}
-        inclusion: не в списке допустимых значений
-        exclusion: зарезервирован
-        invalid: неверен
-        confirmation: не существует %{attribute}
-        accepted: must be accepted
-        empty: не может быть пустым
-        blank: не может быть пустым
-        present: должен быть пустым
-        too_long:
-          one: слишком длинный (максимум 1 символ)
-          other: слишком длинный (максимум %{count} символов)
-        too_short:
-          one: слишком короткий (минимум 1 символ)
-          other: слишком короткий (минимум %{count} символов)
-        wrong_length:
-          one: is the wrong length (should be 1 character)
-          other: is the wrong length (should be %{count} characters)
-        not_a_number: is not a number
-        not_an_integer: must be an integer
-        greater_than: must be greater than %{count}
-        greater_than_or_equal_to: must be greater than or equal to %{count}
-        equal_to: must be equal to %{count}
-        less_than: must be less than %{count}
-        less_than_or_equal_to: must be less than or equal to %{count}
-        other_than: must be other than %{count}
-        odd: must be odd
-        even: must be even
-
-        record_invalid: Validation failed: %{errors}
-        restrict_dependent_destroy:
-          has_one: Cannot delete record because a dependent %{record} exists
-          has_many: Cannot delete record because dependent %{record} exist
-
     models:
       user: Пользователь
       questionnaire: Анкета

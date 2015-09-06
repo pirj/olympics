@@ -45,6 +45,10 @@ gem 'devise'
 gem 'cancancan'
 # gem 'canard'
 
+# Translations
+gem 'rails-i18n'
+gem 'devise-i18n'
+
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano'
