@@ -1,10 +1,12 @@
 ActiveAdmin.register User do
-  permit_params :email, :password, :password_confirmation
+  permit_params :username, :email, :password
 
   index do
     selectable_column
-    id_column
+    # id_column
     column :email
+    column :username
+    column :role
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
@@ -12,17 +14,31 @@ ActiveAdmin.register User do
   end
 
   filter :email
+  filter :username
+  filter :role
   filter :current_sign_in_at
   filter :sign_in_count
   filter :created_at
 
   form do |f|
-    f.inputs "Admin Details" do
+    f.inputs do
       f.input :email
+      f.input :username
       f.input :password
-      f.input :password_confirmation
+      f.input :role
     end
     f.actions
   end
 
+  show do
+    attributes_table do
+      row :email
+      row :username
+      row :role do |user|
+        user.role.text
+      end
+      row :created_at
+      row :updated_at
+    end
+  end
 end

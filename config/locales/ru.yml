@@ -1,20 +1,24 @@
 ru:
   activerecord:
     models:
-      user: Пользователь
-      questionnaire: Анкета
-      question: Вопрос
-      answer: Вариант ответа
-      vote: Голос
+      user: Пользователи
+      questionnaire: Анкеты
+      question: Вопросы
+      answer: Варианты ответа
+      vote: Голоса
 
     attributes:
       user:
         email: Адрес электронной почты
-        login: Логин
+        username: Имя пользователя
         password: Пароль
         role: Роль
 
-# TODO: fill this with attrs and model names, translate the rest
+  attributes:
+    created_at: Дата создания
+    updated_at: Дата обновления
+
+# TODO: fill this with attrs and model names
 
   enumerize:
     user:
