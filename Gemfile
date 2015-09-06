@@ -6,6 +6,7 @@ gem 'thin'
 gem 'sqlite3', groups: [:development, :test]
 gem 'pg', group: :production
 gem 'immigrant'
+gem 'enumerize'
 
 gem 'sass-rails'
 gem 'coffee-rails'

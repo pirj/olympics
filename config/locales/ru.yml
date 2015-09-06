@@ -1,0 +1,13 @@
+ru:
+  enumerize:
+    user:
+      role:
+        sys_admin: Системный администратор
+        ko_admin: Администрация КО
+        ko_user: Пользователь КО
+        knvsh_admin: Администрация КНВШ
+        knvsh_user: Пользователь КНВШ
+        tso_admin: Администрация ЦО
+        tso_user: Пользователь ЦО
+        external_user: Пользователь внешней организации
+        none: '-'
