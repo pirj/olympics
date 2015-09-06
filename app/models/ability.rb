@@ -2,20 +2,38 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    self.send(user.role)
+  end
 
-    # TODO: refactor to classes/methods
-    if user.role.sys_admin?
-      can :manage, :all
-    elsif user.role.ko_admin?
-    elsif user.role.ko_user?
-    elsif user.role.knvsh_admin?
-    elsif user.role.knvsh_user?
-    elsif user.role.tso_admin?
-    elsif user.role.tso_user?
-    elsif user.role.external_user?
-      can :read, :all
-    else
+protected
+  # TODO: refactor to classes with canard gem
+  def sys_admin
+    can :manage, :all
+  end
 
-    end
+  def ko_user
+  end
+
+  def ko_admin
+  end
+
+  def knvsh_admin
+  end
+
+  def knvsh_user
+  end
+
+  def tso_admin
+  end
+
+  def tso_user
+  end
+
+  def external_user
+    can :read, :all
+  end
+
+  def none
+    can :read, :News
   end
 end

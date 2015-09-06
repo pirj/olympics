@@ -34,7 +34,7 @@ gem 'formtastic'
 gem 'has_scope'
 gem 'draper'
 gem 'responders'
-gem 'friendly_id'
+# gem 'friendly_id'
 
 gem 'mini_magick'
 gem 'carrierwave'
@@ -43,6 +43,7 @@ gem 'activeadmin', github: 'activeadmin'
 
 gem 'devise'
 gem 'cancancan'
+# gem 'canard'
 
 # Use Capistrano for deployment
 group :development do
@@ -62,11 +63,11 @@ group :development do
   gem 'quiet_assets'
   # Access an IRB console on exception pages or by using <%= console %> in views
   # gem 'web-console', '~> 2.0'
-  gem 'spring'
+  # gem 'spring'
 end
 
-gem 'minitest-rails'
 group :test do
+  gem 'minitest-spec-rails'
   gem 'minitest-matchers_vaccine' # Non-intrusive matchers
   gem 'valid_attribute' # Sugar for attribute validity
 
