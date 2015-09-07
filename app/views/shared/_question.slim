@@ -1,0 +1,5 @@
+div
+  h5.question = question.title
+  - question.answers.each do |answer|
+    ul
+      li = render partial: 'shared/answer', locals: { answer: answer }

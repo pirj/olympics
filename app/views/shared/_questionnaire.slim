@@ -1,0 +1,4 @@
+div
+  h4.questionnaire = questionnaire.title
+  - questionnaire.questions.each do |question|
+    == render partial: 'shared/question', locals: { question: question }

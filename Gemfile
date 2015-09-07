@@ -7,6 +7,8 @@ gem 'sqlite3', groups: [:development, :test]
 gem 'pg', group: :production
 gem 'immigrant'
 gem 'enumerize'
+# gem 'squeel'
+gem 'aasm'
 
 gem 'sass-rails'
 gem 'coffee-rails'
