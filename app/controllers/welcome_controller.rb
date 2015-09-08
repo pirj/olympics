@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
+  include Questionnaires
+
   def index
-    @questionnaires = Questionnaire.active
   end
 end

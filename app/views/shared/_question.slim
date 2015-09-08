@@ -1,5 +1,12 @@
-div
-  h5.question = question.title
-  - question.answers.each do |answer|
-    ul
-      li = render partial: 'shared/answer', locals: { answer: answer }
+div.question
+  h5 = question.title
+  ul
+    - question.answers.each do |answer|
+      li.answer
+        - if answer_to question
+          - if answer_to(question) == answer.id
+            h3 = answer.title
+          - else
+            h4 = answer.title
+        - else
+          = link_to answer.title, { action: :answer, id: answer.id }

@@ -1,4 +1,4 @@
 div
   h3.questionnaires = I18n.t('activerecord.models.questionnaire')
-  - @questionnaires.each do |questionnaire|
+  - questionnaires.each do |questionnaire|
     == render partial: 'shared/questionnaire', locals: { questionnaire: questionnaire }
