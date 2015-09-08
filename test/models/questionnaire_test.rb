@@ -22,14 +22,17 @@ describe Questionnaire do
   end
 
   describe 'active scope' do
-    let(:passed) { create :questionnaire, ends_on: 1.day.ago }
-    let(:future) { create :questionnaire, starts_on: 1.day.since }
-    let(:current) { create :questionnaire, starts_on: 1.day.ago, ends_on: 1.day.since }
+    before do
+      create :questionnaire, ends_on: 1.day.ago
+      create :questionnaire, starts_on: 1.day.since
+      @current = create :questionnaire, starts_on: 1.day.ago, ends_on: 1.day.since
+    end
+
+    subject { Questionnaire.active }
+
     it 'fits the scope' do
-      active = Questionnaire.active
-      refute_empty active
-      assert_equal 1, active.length
-      assert_equal current, active.first
+      assert_equal 1, subject.count
+      assert_equal @current, subject.first
     end
   end
 end

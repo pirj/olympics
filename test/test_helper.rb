@@ -12,9 +12,10 @@ class ActiveSupport::TestCase
   include FactoryGirl::Syntax::Methods
   include ValidAttribute::Method
 
-  ActiveRecord::Migration.check_pending!
+  DatabaseRewinder.clean_all
 
-  # DatabaseCleaner.strategy = :transaction
-  # before { DatabaseCleaner.start }
-  # after { DatabaseCleaner.clean }
+  ActiveRecord::Migration.check_pending!
+  def teardown
+    DatabaseRewinder.clean
+  end
 end

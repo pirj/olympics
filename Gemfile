@@ -79,5 +79,5 @@ group :test do
   gem 'shoulda-matchers'
 
   gem 'ffaker' # Fake data
-  # gem 'database_cleaner' # Clean up between tests
+  gem 'database_rewinder' # Clean up between tests
 end
