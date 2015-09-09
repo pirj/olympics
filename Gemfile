@@ -37,8 +37,8 @@ gem 'draper'
 gem 'responders'
 # gem 'friendly_id'
 
-gem 'mini_magick'
-gem 'carrierwave'
+gem 'refile', require: 'refile/rails'
+gem 'refile-mini_magick'
 
 gem 'activeadmin', github: 'activeadmin'
 

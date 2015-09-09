@@ -88,11 +88,6 @@ GEM
       thin (~> 1.6)
     capistrano3-nginx (2.1.2)
       capistrano (>= 3.0.0)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -113,6 +108,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     devise-i18n (0.12.1)
+    domain_name (0.5.24)
+      unf (>= 0.0.5, < 1.0.0)
     draper (2.1.0)
       actionpack (>= 3.0)
       activemodel (>= 3.0)
@@ -137,6 +134,8 @@ GEM
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     i18n (0.7.0)
     immigrant (0.3.4)
       activerecord (>= 3.0)
@@ -161,7 +160,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.6.1)
-    mini_magick (4.3.1)
+    mini_magick (4.3.3)
     mini_portile (0.6.2)
     minitest (5.8.0)
     minitest-matchers_vaccine (1.0.3)
@@ -172,6 +171,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
+    netrc (0.10.3)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     normalize-rails (3.0.3)
@@ -189,6 +189,8 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.4)
@@ -228,9 +230,20 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
+    refile (0.5.5)
+      mime-types
+      rest-client (~> 1.8)
+      sinatra (~> 1.4.5)
+    refile-mini_magick (0.1.0)
+      mini_magick (~> 4.0)
+      refile (~> 0.5)
     request_store (1.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     sass (3.4.18)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -240,6 +253,10 @@ GEM
       tilt (>= 1.1, < 3)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -276,6 +293,9 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1)
     valid_attribute (2.0.0)
     warden (1.2.3)
       rack (>= 1.0)
@@ -294,7 +314,6 @@ DEPENDENCIES
   capistrano-rvm
   capistrano-thin
   capistrano3-nginx (~> 2.0)
-  carrierwave
   coffee-rails
   database_rewinder
   devise
@@ -308,7 +327,6 @@ DEPENDENCIES
   has_scope
   immigrant
   jquery-rails
-  mini_magick
   minitest-matchers_vaccine
   minitest-spec-rails
   normalize-rails
@@ -318,6 +336,8 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails-assets-bootstrap!
   rails-i18n
+  refile
+  refile-mini_magick
   responders
   sass-rails
   shoulda-matchers

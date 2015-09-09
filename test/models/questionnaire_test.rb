@@ -31,8 +31,7 @@ describe Questionnaire do
     subject { Questionnaire.active }
 
     it 'fits the scope' do
-      assert_equal 1, subject.count
-      assert_equal @current, subject.first
+      assert_equal subject, [ @current ]
     end
   end
 end
