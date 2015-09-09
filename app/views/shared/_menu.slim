@@ -1,0 +1,29 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed type="button" data-toggle="collapse" aria-expanded="false" data-target="#navbar-collapse"
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      span.navbar-brand
+        = link_to home_index_path
+          img src="/brand.png"
+    #navbar-collapse.collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li.active
+          = link_to t(:events), home_index_path
+        li
+          = link_to t(:news), home_index_path
+        li
+          = link_to t(:documents), home_index_path
+        li
+          = link_to t(:links), home_index_path
+        li
+          = link_to t(:questionnaires), home_index_path
+        li
+          = link_to t(:qna), home_index_path
+        li
+          = link_to t(:contacts), home_index_path
+      ul.nav.navbar-nav.navbar-right
+        a.navbar-btn.btn.btn-default href=home_index_path
+          img src="/login.png"

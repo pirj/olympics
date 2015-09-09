@@ -1,0 +1,9 @@
+nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    span.navbar-brand
+      = link_to home_index_path
+        img src="/external.png"
+    form.navbar-form.navbar-left role="search"
+      .form-group
+        input.form-control type="text" placeholder=t(:site_search)
+      button.btn.btn-default type="submit" = t(:find)

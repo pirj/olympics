@@ -32,3 +32,14 @@ ru:
         tso_user: Пользователь ЦО
         external_user: Пользователь внешней организации
         none: '-'
+
+  events: Мероприятия
+  news: Новости
+  documents: Документы
+  links: Локальные ресурсы
+  questionnaires: Анкетирование
+  qna: Вопросы и ответы
+  contacts: Контакты
+  admin_login: Вход в личный кабинет
+  site_search: Поиск по сайту
+  find: Найти
