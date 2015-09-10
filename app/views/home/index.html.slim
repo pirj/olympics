@@ -6,7 +6,12 @@
   .col-md-4
     =render 'home/documents'
   .col-md-4
-    =render 'home/news'
+    =link_to news_index_path
+      h3
+        img src='/news.png'
+        = t(:news)
+    dl.news.list-unstyled
+      =render partial: 'news/short', locals: { news: news }
   .col-md-4
     =render 'home/questionnaires'
 

@@ -1,0 +1,6 @@
+h2=entry.title
+p
+  - entry.images.each do |image|
+    = image_tag attachment_url(image, :image, :fit, 500, 500, format: "jpg")
+p=entry.text
+p=entry.created_at.to_date

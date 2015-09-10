@@ -1,0 +1,4 @@
+- news.each do |entry|
+  dt=link_to news_path entry
+    = entry.title
+  dd = entry.created_at.to_date

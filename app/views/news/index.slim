@@ -1,0 +1,11 @@
+ul
+- news.each do |entry|
+  li
+    p
+      =link_to news_path entry
+        =entry.title
+    p
+      - entry.images.each do |image|
+        = image_tag attachment_url(image, :image, :fit, 300, 300, format: "jpg")
+    p=entry.text[0..1000]
+    p=entry.created_at.to_date
