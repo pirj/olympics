@@ -2,6 +2,8 @@ ru:
   activerecord:
     models:
       user: Пользователи
+      news_entry: Новости
+      news_entry_image: Прикреплённые изображения
       questionnaire: Анкеты
       question: Вопросы
       answer: Варианты ответа
@@ -17,6 +19,7 @@ ru:
   attributes:
     created_at: Дата создания
     updated_at: Дата обновления
+    title: Заголовок
 
 # TODO: fill this with attrs and model names
 
@@ -35,6 +38,7 @@ ru:
 
   events: Мероприятия
   news: Новости
+  images: Изображения
   documents: Документы
   links: Локальные ресурсы
   questionnaires: Анкетирование

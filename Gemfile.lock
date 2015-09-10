@@ -234,6 +234,9 @@ GEM
       mime-types
       rest-client (~> 1.8)
       sinatra (~> 1.4.5)
+    refile-input (0.0.3)
+      formtastic (~> 3.1)
+      refile (~> 0.5)
     refile-mini_magick (0.1.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
@@ -337,6 +340,7 @@ DEPENDENCIES
   rails-assets-bootstrap!
   rails-i18n
   refile
+  refile-input
   refile-mini_magick
   responders
   sass-rails

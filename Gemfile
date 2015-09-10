@@ -1,3 +1,4 @@
+ruby '2.2.3'
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
@@ -38,6 +39,7 @@ gem 'responders'
 # gem 'friendly_id'
 
 gem 'refile', require: 'refile/rails'
+gem "refile-input", require: 'inputs/refile_input'
 gem 'refile-mini_magick'
 
 gem 'activeadmin', github: 'activeadmin'
