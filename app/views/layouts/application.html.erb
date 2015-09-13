@@ -8,7 +8,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    </script>
 
   </head>
   <body>
@@ -16,13 +15,10 @@
     <header>
       <%=render 'shared/header'%>
       <%=render 'shared/menu'%>
-    <header>
-
-    <%=render 'shared/slider'%>
+    </header>
 
     <%= yield %>
 
-    <%=render 'shared/footer'%>
 
   </body>
 </html>

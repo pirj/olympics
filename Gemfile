@@ -23,6 +23,7 @@ end
 
 source 'https://rails-assets.org' do
   # gem 'rails-assets-bootstrap'
+  gem 'rails-assets-flickerplate'
 end
 
 gem 'jquery-rails'

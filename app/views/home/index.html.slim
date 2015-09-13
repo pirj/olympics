@@ -1,20 +1,42 @@
-= javascript_include_tag 'home', 'data-turbolinks-track' => true
+=render 'home/slider'
 
-=render 'home/banners'
+.container
+  =render 'home/links'
 
-=render 'home/events'
+  .local
+  h4
+    = link_to t(:links), home_index_path
 
-.row
-  .col-md-4
-    =render 'home/documents'
-  .col-md-4
-    =link_to news_index_path
-      h3
-        img src='/news.png'
-        = t(:news)
-    dl.news.list-unstyled
-      =render partial: 'news/short', locals: { news: news }
-  .col-md-4
-    =render 'home/questionnaires'
+  .owl-carousel
+    .item
+      =image_tag 'local1.png'
+    .item
+      =image_tag 'local2.png'
+    .item
+      =image_tag 'local3.png'
+    .item
+      =image_tag 'local4.png'
 
-=render 'home/links'
+  =render 'shared/footer'
+
+  <div class="reveal-modal" id="myModal">
+    <div class="login_pop">
+      <div class="user_menu">
+        Войти на сайт
+      </div>
+
+      <form method="post">
+        <p><input name="login" placeholder="Логин" type="text" value=""></p>
+        <p><input name="password" placeholder="Пароль" type="text" value=""></p>
+        <p class="remember_me"><input type="checkbox" class="checkbox" id="checkbox10" /><label for="checkbox10"> Чужой компьютер</label></p>
+        <div class="login-help">
+          <a href="#">Вспомнить пароль</a>
+        </div>
+        <div style="clear: both;"></div>
+        <p class="submit"><input name="commit" type="submit" value="Войти"></p>
+        <p class="regist"><a href="/regist.html">Регистрация</a></p>
+      </form>
+    </div>
+
+    <a class="close-reveal-modal">&#215;</a>
+  </div>

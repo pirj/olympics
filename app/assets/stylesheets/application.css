@@ -1,6 +1,6 @@
 /*
+ *= require flickerplate
  *= require_self
- *= require ./style
- *= require ./styles
  *= require_tree ./lib
+ *= require_tree ./application
  */

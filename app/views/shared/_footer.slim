@@ -1,12 +1,10 @@
-nav.navbar.navbar-default.navbar-fixed-bottom
+footer
   .container
-    ul.nav.navbar-nav
-      p.navbar-text
-        | © Единый информационный портал о научно-исследовательской деятельности и олимпиадном движении
-    ul.nav.navbar-nav.navbar-right
-      li
-        = link_to t(:qna), home_index_path
-      li
-        = link_to t(:contacts), home_index_path
-      li
-        = link_to t(:admin_login), new_user_session_path
+    .copyright_year © 2015
+
+    .copyright Единый информационный портал о научной-исследоватльской деятельности и олимпиадном движении</div>
+    .footer_links
+      = link_to t(:qna), home_index_path
+      = link_to t(:contacts), home_index_path
+      = link_to t(:admin_login), new_user_session_path
+      a data-reveal-id="myModal" href="#" Войти в личный кабинет
