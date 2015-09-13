@@ -22,7 +22,7 @@ group :assets do
 end
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap'
+  # gem 'rails-assets-bootstrap'
 end
 
 gem 'jquery-rails'

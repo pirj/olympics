@@ -1,15 +1,12 @@
-nav.navbar.navbar-default
-  .container-fluid
-    .navbar-header
-      button.navbar-toggle.collapsed type="button" data-toggle="collapse" aria-expanded="false" data-target="#navbar-collapse"
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      span.navbar-brand
-        = link_to home_index_path
-          img src="/brand.png"
-    #navbar-collapse.collapse.navbar-collapse
-      ul.nav.navbar-nav
+.middle
+  .container
+
+    .logo
+      = link_to home_index_path
+        = image_tag 'logo.png'
+
+    nav.menu
+      ul
         li.active
           = link_to t(:events), home_index_path
         li
@@ -24,6 +21,6 @@ nav.navbar.navbar-default
           = link_to t(:qna), home_index_path
         li
           = link_to t(:contacts), home_index_path
-      ul.nav.navbar-nav.navbar-right
-        a.navbar-btn.btn.btn-default href=new_user_session_path
-          img src="/login.png"
+
+    a data-reveal-id="myModal" href="#" class="login"
+      | Войти

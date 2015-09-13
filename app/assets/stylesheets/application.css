@@ -1,5 +1,6 @@
 /*
  *= require_self
- *= require bootstrap
+ *= require ./style
+ *= require ./styles
+ *= require_tree ./lib
  */
-body { padding-top: 50px; padding-bottom: 50px; }
