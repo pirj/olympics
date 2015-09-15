@@ -174,7 +174,7 @@
   top: 50%;
   margin-left: -40px;
   margin-top: -40px;
-  background: url("owl.video.play.png") no-repeat;
+  background: image-url("owl.video.play.png") no-repeat;
   cursor: pointer;
   z-index: 1;
   -webkit-backface-visibility: hidden;
@@ -392,7 +392,7 @@
   top: 50%;
   margin-left: -40px;
   margin-top: -40px;
-  background: url("owl.video.play.png") no-repeat;
+  background: image-url("owl.video.play.png") no-repeat;
   cursor: pointer;
   z-index: 1;
   -webkit-backface-visibility: hidden;
@@ -441,7 +441,7 @@
     left: 310px;
 }
 .owl-prev{
-    background: url(/assets/left.png) no-repeat;
+    background: image-url(left.png) no-repeat;
     height: 50px;
     width: 40px;
     position: absolute;
@@ -450,7 +450,7 @@
     text-indent: -99999999px;
 }
 .owl-next{
-    background: url(/assets/right.png) no-repeat;
+    background: image-url(right.png) no-repeat;
     height: 50px;
     width: 40px;
     text-indent: -99999999px;

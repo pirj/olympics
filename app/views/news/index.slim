@@ -1,11 +1,24 @@
-ul
-- news.each do |item|
-  li
-    p
-      =link_to news_path item
-        =item.title
-    p
-      - item.images.each do |image|
-        = image_tag attachment_url(image, :image, :fit, 300, 300, format: "jpg")
-    p=item.text[0..1000]
-    p=item.created_at.to_date
+.container
+  .breadcrumbs
+    a href="/" Главная
+    | /
+    span Новости
+
+.container
+  h1 Новости
+
+  .blog
+    - news.each do |item|
+      .news
+        - if item.images.present?
+          .news_prew.img
+            =render partial: 'news/item', locals: { item: item }
+          .news_img
+            - item.images.each do |image|
+              = image_tag attachment_url(image, :image, :fit, 300, 300, format: "jpg")
+        - else
+          .news_prew
+            =render partial: 'news/item', locals: { item: item }
+
+    .more_news
+      a.archive href="#"

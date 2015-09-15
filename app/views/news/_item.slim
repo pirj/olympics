@@ -1,0 +1,6 @@
+p
+  =link_to news_path(item), html: { class: 'title' }
+    =item.title
+span=item.subtype
+span.date=l item.created_at, format: :short
+p.news_desc=item.text.html_safe

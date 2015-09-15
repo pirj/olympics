@@ -5,7 +5,7 @@
 }
 
 body { padding: 0; margin: 0;font-family: 'Roboto', sans-serif; font-weight: 300;}
-.cel li {list-style: none;background: url(/assets/gal.png) no-repeat 0% 49%;padding-left: 25px;line-height: 1.6;}
+.cel li {list-style: none;background: image-url(gal.png) no-repeat 0% 49%;padding-left: 25px;line-height: 1.6;}
 ul {padding: 0;}
 
 .container {width: 1030px; margin: 0 auto;position: relative;/* overflow: hidden; */}
@@ -190,7 +190,7 @@ footer{
   margin-top: 20px;
   padding: 10px;
   border-radius: 4px;
-  background: url(/assets/login.png) no-repeat 10% 40%;
+  background: image-url(login.png) no-repeat 10% 40%;
   padding-left: 29px;
   font-size: 15px;
   border: 1px solid;
@@ -248,7 +248,7 @@ footer{
   top: 18px;
   left: 0;
   cursor: pointer;
-  background: url(/assets/search.png) 50% no-repeat;
+  background: image-url(search.png) 50% no-repeat;
   opacity: 0.5;
   padding-left: 19px;
 }
@@ -287,7 +287,7 @@ footer{
   float: left;
   font-size: 18px;
   color: #676767;
-  background: url(/assets/calendar.png) no-repeat 0;
+  background: image-url(calendar.png) no-repeat 0;
   padding-left: 40px;
 }
 .calendar_search{
@@ -298,7 +298,7 @@ footer{
   color: #3191d5;
   border-bottom: 1px dotted #8f8f8f;
   text-decoration: none;
-  background: url(/assets/arrow.png) no-repeat 100%;
+  background: image-url(arrow.png) no-repeat 100%;
   padding-right: 15px;
   cursor: pointer;
 }
@@ -340,7 +340,7 @@ footer{
   top: 30px;
   left: 10px;
   cursor: pointer;
-  background: url(/assets/search.png) 50% no-repeat;
+  background: image-url(search.png) 50% no-repeat;
   opacity: 0.5;
   padding-left: 19px;
 }
@@ -381,7 +381,7 @@ footer{
 .calendar_news .today{
   color: #ffb807;
   font-size: 12px;
-  background: url(/assets/today.png) no-repeat;
+  background: image-url(today.png) no-repeat;
   padding-left: 25px;
 }
 .calendar_news .category{
@@ -393,7 +393,7 @@ footer{
 .calendar_news .evry{
   color: #6d6d6d;
   font-size: 12px;
-  background: url(/assets/evry.png) no-repeat;
+  background: image-url(evry.png) no-repeat;
   padding-left: 25px;
 }
 .category_one{
@@ -429,12 +429,12 @@ overflow: hidden;padding: 30px 0;border-bottom: 1px solid #EAEAEA;}
   padding-left: 35px;
 }
 .additional_doc {
-  background: url(/assets/doc.png) no-repeat;
+  background: image-url(doc.png) no-repeat;
   height: 25px;
 }
 .additional_doc_link{
   font-size: 14px;
-  background: url(/assets/pdf.png) no-repeat 0% 13%;
+  background: image-url(pdf.png) no-repeat 0% 13%;
   padding-left: 35px;
   margin-bottom: 15px;
 }
@@ -465,7 +465,7 @@ overflow: hidden;padding: 30px 0;border-bottom: 1px solid #EAEAEA;}
   padding-left: 35px;
 }
 .additional_news {
-  background: url(/assets/news.png) no-repeat;
+  background: image-url(news.png) no-repeat;
   height: 25px;
 }
 .additional_news_link{
@@ -485,13 +485,13 @@ overflow: hidden;padding: 30px 0;border-bottom: 1px solid #EAEAEA;}
   padding-left: 35px;
 }
 .additional_quest {
-  background: url(/assets/quest.png) no-repeat;
+  background: image-url(quest.png) no-repeat;
   height: 25px;
 }
 .additional_quest_link{
   font-size: 14px;
   margin-bottom: 10px;
-  background: url(/assets/quest_ico.png) no-repeat 0% 13%;
+  background: image-url(quest_ico.png) no-repeat 0% 13%;
   padding-left: 30px;
 }
 .additional_quest_link a{
@@ -597,7 +597,7 @@ font-size: 14px;padding-top: 10px;line-height: 1.3;margin-left: 13px;float: left
   top: 14px;
   left: 10px;
   cursor: pointer;
-  background: url(/assets/search.png) 50% no-repeat;
+  background: image-url(search.png) 50% no-repeat;
   opacity: 0.5;
   padding-left: 19px;
 }
@@ -723,10 +723,10 @@ font-size: 14px;padding-top: 10px;line-height: 1.3;margin-left: 13px;float: left
   cursor:pointer;
   margin: 10px 0 0 0;
 }
-.close.spoiler h2{background: #f4f5f5;background: url(/assets/close.jpg) no-repeat 1%, #f4f5f5;padding-left: 35px;}
-.close.spoiler h2.bgcolor{background: url(/assets/open.jpg) no-repeat 1%, #f4f5f5;padding-left: 35px;}
+.close.spoiler h2{background: #f4f5f5;background: image-url(close.jpg) no-repeat 1%, #f4f5f5;padding-left: 35px;}
+.close.spoiler h2.bgcolor{background: image-url(open.jpg) no-repeat 1%, #f4f5f5;padding-left: 35px;}
 .spoiler h2{background:#ddd;}
-.spoiler h2.bgcolor{background: #f4f5f5;background: url(/assets/open.jpg) no-repeat 1%, #f4f5f5;      padding-left: 30px;}
+.spoiler h2.bgcolor{background: #f4f5f5;background: image-url(open.jpg) no-repeat 1%, #f4f5f5;      padding-left: 30px;}
 .spoiler h2 span{
   font-size:12px;
   color:#555;
@@ -868,7 +868,7 @@ color:#000;}
   transition: all .2s;
 }
 .checkbox:checked + label:before {
-  background: url(/assets/gall.png) no-repeat 50% 50%;
+  background: image-url(gall.png) no-repeat 50% 50%;
 }
 .checkbox:checked + label:after {
   left: 26px;
@@ -921,7 +921,7 @@ a.back{
   line-height: 1.2;
 }
 .documents_one {
-  background: url(/assets/doc_pdf.jpg) no-repeat;
+  background: image-url(doc_pdf.jpg) no-repeat;
   padding-left: 45px;
   min-height: 50px;
   margin-bottom: 10px;
@@ -971,7 +971,7 @@ a.back{
   top: 14px;
   left: 10px;
   cursor: pointer;
-  background: url(/assets/search.png) 50% no-repeat;
+  background: image-url(search.png) 50% no-repeat;
   opacity: 0.5;
   padding-left: 19px;
 }
@@ -1161,7 +1161,7 @@ p.documents_one{
   font-size: 14px;
 }
 .training li{
-  background: url(/assets/bull.png) no-repeat 0;
+  background: image-url(bull.png) no-repeat 0;
   padding-left: 20px;
   line-height: 2;
   list-style: none;
@@ -1217,7 +1217,7 @@ td.error{
   width: 150px;
 }
 .button_reg{
-  background: url(/assets/button.png) no-repeat;
+  background: image-url(button.png) no-repeat;
   width: 222px;
   /* height: 56px; */
   border: 0;
@@ -1390,7 +1390,7 @@ h2.today{
 }
 .calendar_day.today .calendar_date p{
   margin-bottom: 2px;
-  background: url(/assets/col.png) no-repeat 0;
+  background: image-url(col.png) no-repeat 0;
   padding-left: 20px;
 }
 .calendar_date p{
@@ -1492,7 +1492,7 @@ h2.today{
   color: #3191d5;
   border-bottom: 1px dotted #8f8f8f;
   text-decoration: none;
-  background: url(/assets/arrow.png) no-repeat 100%;
+  background: image-url(arrow.png) no-repeat 100%;
   padding-right: 15px;
   cursor: pointer;
   font-size: 18px;

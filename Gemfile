@@ -74,7 +74,7 @@ group :development do
   gem 'guard-livereload', require: false
   # Access an IRB console on exception pages or by using <%= console %> in views
   # gem 'web-console', '~> 2.0'
-  # gem 'spring'
+  gem 'spring'
 end
 
 gem 'factory_girl_rails' # Factories
