@@ -1,7 +1,7 @@
 p.additional_news
   a href="#" Новости
-- news.each do |entry|
+- news.each do |item|
   p.additional_news_link
-    =link_to entry do
-      =entry.title
-      span=d(entry.created_at)
+    =link_to item do
+      =item.title
+    span=l(item.created_at.to_date)

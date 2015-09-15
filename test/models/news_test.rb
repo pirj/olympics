@@ -1,8 +1,8 @@
 require 'test_helper'
 
-describe NewsEntry do
+describe News do
   describe 'basic' do
-    subject { build :news_entry }
+    subject { build :news }
 
     it 'must have fields and associations' do
       must belong_to :author
@@ -16,11 +16,11 @@ describe NewsEntry do
   describe 'scopes' do
     before do
       (1..5).each do |days|
-        create :news_entry, created_at: days.day.ago
+        create :news, created_at: days.day.ago
       end
     end
 
-    subject { NewsEntry.actual(3) }
+    subject { News.actual(3) }
 
     it 'fits the scope' do
       assert_equal 3, subject.count

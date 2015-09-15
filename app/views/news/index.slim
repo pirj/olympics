@@ -1,11 +1,11 @@
 ul
-- news.each do |entry|
+- news.each do |item|
   li
     p
-      =link_to news_path entry
-        =entry.title
+      =link_to news_path item
+        =item.title
     p
-      - entry.images.each do |image|
+      - item.images.each do |image|
         = image_tag attachment_url(image, :image, :fit, 300, 300, format: "jpg")
-    p=entry.text[0..1000]
-    p=entry.created_at.to_date
+    p=item.text[0..1000]
+    p=item.created_at.to_date

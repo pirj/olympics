@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20150915094532) do
     t.string   "title"
   end
 
-  create_table "news_entries", force: :cascade do |t|
+  create_table "news", force: :cascade do |t|
     t.integer  "author_id"
     t.string   "title"
     t.text     "text"
@@ -49,11 +49,11 @@ ActiveRecord::Schema.define(version: 20150915094532) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "news_entry_images", force: :cascade do |t|
-    t.integer  "news_entry_id"
+  create_table "news_images", force: :cascade do |t|
+    t.integer  "news_id"
     t.string   "image_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "questionnaires", force: :cascade do |t|

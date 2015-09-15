@@ -1,15 +1,15 @@
 class NewsController < ApplicationController
   def index
     render :index, locals: {
-      news: NewsEntry.all
+      news: News.all
     }
   end
 
   def show
-    entry = NewsEntry.find(params[:id])
-    fail NotFound unless entry
+    item = News.find(params[:id])
+    fail NotFound unless item
     render :show, locals: {
-      entry: entry
+      item: item
     }
   end
 end

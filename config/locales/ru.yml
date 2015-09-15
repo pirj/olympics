@@ -1,9 +1,13 @@
 ru:
+  date:
+    formats:
+      default: "%d %B %Y г."
+
   activerecord:
     models:
       user: Пользователи
-      news_entry: Новости
-      news_entry_image: Прикреплённые изображения
+      news: Новости
+      news_image: Прикреплённые изображения
       questionnaire: Анкеты
       question: Вопросы
       answer: Варианты ответа
