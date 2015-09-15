@@ -91,13 +91,13 @@
 
 .iosSlider .slider .item1 .inner { }
 
-.iosSlider .slider .item2 .inner { background-image: url('assets/h-slider-2.jpg'); }
+.iosSlider .slider .item2 .inner { background-image: image-url('h-slider-2.jpg'); }
 
-.iosSlider .slider .item3 .inner { background-image: url('assets/h-slider-3.jpg'); }
+.iosSlider .slider .item3 .inner { background-image: image-url('h-slider-3.jpg'); }
 
-.iosSlider .slider .item4 .inner { background-image: url('assets/h-slider-4.jpg'); }
+.iosSlider .slider .item4 .inner { background-image: image-url('h-slider-4.jpg'); }
 
-.iosSlider .slider .item5 .inner { background-image: url('assets/h-slider-5.jpg'); }
+.iosSlider .slider .item5 .inner { background-image: image-url('h-slider-5.jpg'); }
 
 .sliderContainer .slideSelectors {
   position: absolute;

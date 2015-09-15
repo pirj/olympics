@@ -4,3 +4,7 @@
  *= require_tree ./lib
  *= require_tree ./application
  */
+
+.flickerplate ul.flicks>li .flick-title, .flickerplate ul.flicks>li .flick-sub-text {
+  text-align: left;
+}
