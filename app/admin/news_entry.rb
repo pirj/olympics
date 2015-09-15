@@ -30,7 +30,6 @@ ActiveAdmin.register NewsEntry do
   show do
     attributes_table do
       row :title
-      row :text
       row :created_at
       row :updated_at
     end

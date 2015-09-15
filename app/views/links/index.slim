@@ -1,0 +1,15 @@
+.container
+  .breadcrumbs
+    a href="/" Главная
+    | /
+    span Локальные ресурсы
+
+.container
+  h1 Локальные ресурсы
+
+  - links.each do |link|
+    .local_resours
+      = link_to link.url
+        .local_img
+          = image_tag attachment_url(link, :image, :fit, 200, 56, format: "png")
+        .local_name=link.title

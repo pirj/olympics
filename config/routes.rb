@@ -6,7 +6,5 @@ Rails.application.routes.draw do
 
   get 'home/index'
   resources :news, only: [:index, :show]
-
-  # FIXME: how can this be inferred from Questionnaires concern?
-  # get 'home#answer' => 'welcome#answer'
+  resources :links, only: [:index]
 end

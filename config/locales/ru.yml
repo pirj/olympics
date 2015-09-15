@@ -8,6 +8,7 @@ ru:
       question: Вопросы
       answer: Варианты ответа
       vote: Голоса
+      link: Локальные ресурсы
 
     attributes:
       user:
