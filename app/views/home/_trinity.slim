@@ -1,26 +1,11 @@
 .container
   .content
     .calendar
-      .additional_links
-        .additional_link doc
-          <p class="additional_doc"><a href="#" >Документы</a></p>
-          <p  class="additional_doc_link"><a href="#">Федеральный закон об «Об образовании  в Российской Федерации»</a></p>
-          <p  class="additional_doc_link"> <a href="#" >Порядок проведения олимпков  </a></p>
-          <p  class="additional_doc_link last"><a href="#" >О внесении изменений в Порядок проведения  олимпиад школьников </a></p>
-          <span>(Приказ Минобрнауки РФ №1563 от 10.12.2014)</span>
 
-        .additional_link
-          <p class="additional_news"><a href="#" >Новости</a></p>
-          <p  class="additional_news_link"><a href="#">Коалиция Навального провела пикет  в Новосибирске</a>
-          <span>12 марта 2015 г.</span></p>
-          <p  class="additional_news_link"> <a href="#" >Биржевой курс евро впервые с февраля  превысил 71 руб.</a>
-          <span>13 марта 2015 г.</span></p>
-          <p  class="additional_news_link"> <a href="#" >В Петербурге растет число иногородних  абитуриентов </a>
-          <span>10 мая 2015 г.</span></p>
-
-        .additional_link
-          <p class="additional_quest"><a href="#" >Анкетирование</a></p>
-          <p  class="additional_quest_link"><a href="#">Опрос школьников по поводу  учебных заведений</a></p>
-          <p  class="additional_quest_link"> <a href="#" >Анкетирование родителей</a></p>
-          <p  class="additional_quest_link last"><a href="#" >О внесении изменений в Порядок проведения  олимпиад школьников </a></p>
-          <p  class="additional_quest_link last"><a href="#" >Премирование школьников</a></p>
+    .additional_links
+      .additional_link.doc
+        = render partial: 'docs', locals: { docs: docs }
+      .additional_link
+        = render partial: 'news', locals: { news: news }
+      .additional_link
+        = render partial: 'questionnaires', locals: { questionnaires: questionnaires }
