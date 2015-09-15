@@ -441,7 +441,7 @@
     left: 310px;
 }
 .owl-prev{
-    background: image-url(left.png) no-repeat;
+    background: image-url('left.png') no-repeat;
     height: 50px;
     width: 40px;
     position: absolute;
@@ -450,7 +450,7 @@
     text-indent: -99999999px;
 }
 .owl-next{
-    background: image-url(right.png) no-repeat;
+    background: image-url('right.png') no-repeat;
     height: 50px;
     width: 40px;
     text-indent: -99999999px;
