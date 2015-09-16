@@ -1,6 +1,14 @@
-h2=item.title
-p
-  - item.images.each do |image|
-    = image_tag attachment_url(image, :image, :fit, 500, 500, format: "jpg")
-p=item.text
-p=item.created_at.to_date
+.container
+  .breadcrumbs
+    a href="/" Главная
+    | /
+    span Новости
+
+.content_news
+  .container
+      h1=item.title
+      /* span.date=l item.created_at, format: :short */
+      p=item.text.html_safe
+      #coin-slider
+        - item.images.each do |image|
+          = image_tag attachment_url(image, :image, :fit, 500, 500, format: "jpg")
