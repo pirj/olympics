@@ -65,6 +65,8 @@ end
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'factory_girl_rails' # Factories
+  gem 'ffaker' # Fake data
 end
 
 group :development do
@@ -77,13 +79,10 @@ group :development do
   gem 'spring'
 end
 
-gem 'factory_girl_rails' # Factories
 group :test do
   gem 'minitest-spec-rails'
   gem 'minitest-matchers_vaccine' # Non-intrusive matchers
   gem 'valid_attribute' # Sugar for attribute validity
   gem 'shoulda-matchers'
-
-  gem 'ffaker' # Fake data
   gem 'database_rewinder' # Clean up between tests
 end
