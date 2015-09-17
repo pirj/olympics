@@ -14,7 +14,7 @@ ActiveAdmin.register Link do
   filter :created_at
 
   form do |link|
-    link.semantic_errors # *questionnaire.object.errors.keys
+    link.semantic_errors
     link.semantic_errors *link.object.errors.keys
     link.inputs do
       link.input :title

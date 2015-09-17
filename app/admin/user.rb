@@ -6,7 +6,9 @@ ActiveAdmin.register User do
     # id_column
     column :email
     column :username
-    column :role
+    column :role do |user|
+      user.role.text
+    end
     column :current_sign_in_at
     column :sign_in_count
     column :created_at

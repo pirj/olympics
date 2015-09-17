@@ -13,6 +13,7 @@ ru:
       answer: Варианты ответа
       vote: Голоса
       link: Локальные ресурсы
+      document: Документы
 
     attributes:
       user:
@@ -20,12 +21,15 @@ ru:
         username: Имя пользователя
         password: Пароль
         role: Роль
+      document:
+        attached_document: Прикреплённый файл
 
   attributes:
     created_at: Дата создания
     updated_at: Дата обновления
     title: Заголовок
     text: Текст
+    subtype: Тип
 
 # TODO: fill this with attrs and model names
 
@@ -41,6 +45,12 @@ ru:
         tso_user: Пользователь ЦО
         external_user: Пользователь внешней организации
         none: '-'
+    document:
+      subtype:
+        federal: Всероссийские олимпиады
+        regional: Региональные олимпиады
+        rsosh: Олимпиады РСОШ
+        science: Научная деятельность
 
   events: Мероприятия
   news: Новости
@@ -53,3 +63,4 @@ ru:
   admin_login: Вход в личный кабинет
   site_search: Поиск по сайту
   find: Найти
+  download: Скачать

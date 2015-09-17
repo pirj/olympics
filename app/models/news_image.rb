@@ -1,4 +1,5 @@
 class NewsImage < ActiveRecord::Base
   belongs_to :news
-  attachment :image
+  attachment :image, type: :image
+  validates :image, presence: true
 end
