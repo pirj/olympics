@@ -5,10 +5,7 @@ class Document < ActiveRecord::Base
   enumerize :subtype, in: [:federal, :regional, :rsosh, :science]
   validates :subtype, presence: true
 
-  attachment :attached_document
-  # FIXME:
-  # , type: :document
-  # FIXME:
+  attachment :attached_document # FIXME: # , type: :document
   validates :attached_document, presence: true
 
   validates :title, presence: true

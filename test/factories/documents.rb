@@ -3,7 +3,6 @@ FactoryGirl.define do
     title { FFaker::Lorem.phrase }
     text { FFaker::Lorem.paragraph }
     subtype { Document.subtype.values.last }
-    # FIXME: username??
-    attached_document_id { FFaker::Internet.user_name }
+    attached_document { Rack::Test::UploadedFile.new(File.join(Rails.root, 'test', 'fixtures', 'doc.pdf'), 'application/pdf') }
   end
 end
