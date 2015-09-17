@@ -1,0 +1,4 @@
+=form_tag("", class: "search") do
+  =text_field_tag "name", filter[:name], class: "input", placeholder: "Поиск по документам", type: "search"
+  =submit_tag "", class: "submit", type: "submit"
+  =button_tag "Найти"

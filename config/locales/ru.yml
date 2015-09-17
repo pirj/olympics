@@ -23,6 +23,8 @@ ru:
         role: Роль
       document:
         attached_document: Прикреплённый файл
+        attached_document_content_type: Формат
+        attached_document_size: Размер, байт
 
   attributes:
     created_at: Дата создания
@@ -64,3 +66,8 @@ ru:
   site_search: Поиск по сайту
   find: Найти
   download: Скачать
+  'application/pdf': PDF
+  'application/msword': DOC
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document': DOCX
+  'application/vnd.ms-excel': XLS
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': XLSX

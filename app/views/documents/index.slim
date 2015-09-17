@@ -1,0 +1,28 @@
+.container
+  .breadcrumbs
+  a href="/" Главная
+  | /
+  span Документы
+
+.container
+  h1.documents Документы
+
+  .documents_search
+    = render partial: 'documents/search', locals: { filter: filter }
+
+  .top_content
+    .documents
+      - documents.each do |document|
+        .documents_one
+          p
+            =link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
+            span
+              | (
+              =t(document.attached_document_content_type)
+              |,&nbsp;
+              =size_in_mb(document.attached_document_size)
+              | МБ)
+          span=document.text
+
+  .right_sidebar
+    = render partial: 'documents/sidebar', locals: { filter: filter }
