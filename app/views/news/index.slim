@@ -15,7 +15,7 @@
             =render partial: 'news/item', locals: { item: item }
           .news_img
             - item.images.each do |image|
-              = image_tag attachment_url(image, :image, :fit, 300, 300, format: "jpg")
+              = image_tag attachment_url(image, :image, :fit, 300, 300)
         - else
           .news_prew
             =render partial: 'news/item', locals: { item: item }
