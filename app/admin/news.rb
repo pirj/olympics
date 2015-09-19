@@ -45,7 +45,7 @@ ActiveAdmin.register News do
       news.images.map do |image|
         row :image do
           # attachment_image_tag
-          image_tag attachment_url(image, :image, format: "jpg")
+          image_tag attachment_url(image, :image)
         end
       end
     end

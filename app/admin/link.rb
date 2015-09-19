@@ -29,7 +29,7 @@ ActiveAdmin.register Link do
       row :title
       row :url
       row :image do
-        image_tag attachment_url(external_link, :image, format: "jpg")
+        image_tag attachment_url(external_link, :image, :fit, 300, 300)
       end
       row :created_at
       row :updated_at

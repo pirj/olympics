@@ -5,15 +5,17 @@ ru:
 
   activerecord:
     models:
-      user: Пользователи
-      news: Новости
-      news_image: Прикреплённые изображения
-      questionnaire: Анкеты
-      question: Вопросы
-      answer: Варианты ответа
+      user: Пользователь
+      news: Новость
+      news_image: Прикреплённое изображение
+      questionnaire: Анкета
+      question: Вопрос
+      answer: Вариант ответа
       vote: Голоса
-      link: Локальные ресурсы
-      document: Документы
+      link: Локальный ресурс
+      document: Документ
+      contact: Контакт
+      subject: Предмет
 
     attributes:
       user:

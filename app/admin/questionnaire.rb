@@ -51,4 +51,3 @@ ActiveAdmin.register Questionnaire do
     end
   end
 end
-
