@@ -25,12 +25,19 @@ ru:
         attached_document: Прикреплённый файл
         attached_document_content_type: Формат
         attached_document_size: Размер, байт
+      contact:
+        name: ФИО
+        phone: Телефон
+        email: Электроннй адрес
+        organization: Организация
+        position: Должность
 
   attributes:
     created_at: Дата создания
     updated_at: Дата обновления
     title: Заголовок
     text: Текст
+    description: Описание
     subtype: Тип
 
 # TODO: fill this with attrs and model names

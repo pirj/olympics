@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917101417) do
+ActiveRecord::Schema.define(version: 20150919075621) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -33,6 +33,24 @@ ActiveRecord::Schema.define(version: 20150917101417) do
     t.string  "title"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.string   "phone",        null: false
+    t.string   "email",        null: false
+    t.string   "organization", null: false
+    t.string   "position",     null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "contacts_events", id: false, force: :cascade do |t|
+    t.integer "contact_id"
+    t.integer "event_id"
+  end
+
+  add_index "contacts_events", ["contact_id"], name: "index_contacts_events_on_contact_id"
+  add_index "contacts_events", ["event_id"], name: "index_contacts_events_on_event_id"
+
   create_table "documents", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
@@ -44,6 +62,25 @@ ActiveRecord::Schema.define(version: 20150917101417) do
     t.integer  "attached_document_size"
     t.string   "attached_document_content_type"
   end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title",       null: false
+    t.text     "description", null: false
+    t.date     "start",       null: false
+    t.date     "finish",      null: false
+    t.string   "subtype",     null: false
+    t.integer  "author_id"
+    t.integer  "owner_id"
+    t.integer  "subject_id"
+    t.boolean  "external",    null: false
+    t.string   "aasm_state",  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "events", ["author_id"], name: "index_events_on_author_id"
+  add_index "events", ["owner_id"], name: "index_events_on_owner_id"
+  add_index "events", ["subject_id"], name: "index_events_on_subject_id"
 
   create_table "links", force: :cascade do |t|
     t.string   "url"
@@ -82,6 +119,12 @@ ActiveRecord::Schema.define(version: 20150917101417) do
     t.string  "title"
   end
 
+  create_table "subjects", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username",           default: "", null: false
     t.string   "email",              default: "", null: false
@@ -89,8 +132,10 @@ ActiveRecord::Schema.define(version: 20150917101417) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "role"
+    t.integer  "contacts_id"
   end
 
+  add_index "users", ["contacts_id"], name: "index_users_on_contacts_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["username"], name: "index_users_on_username", unique: true
 

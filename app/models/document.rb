@@ -1,8 +1,9 @@
 class Document < ActiveRecord::Base
   extend Enumerize
+  include Subtypes
 
   # TODO: add index
-  enumerize :subtype, in: [:federal, :regional, :rsosh, :science]
+  enumerize :subtype, in: SUBTYPES
   validates :subtype, presence: true
 
   attachment :attached_document # FIXME: # , type: :document
