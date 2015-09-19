@@ -42,4 +42,7 @@ class Event < ActiveRecord::Base
       transitions from: :published, to: :archived
     end
   end
+
+  has_many :documents, class_name: 'EventDocument'
+  accepts_nested_attributes_for :documents, allow_destroy: true
 end

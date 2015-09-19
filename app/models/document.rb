@@ -6,7 +6,7 @@ class Document < ActiveRecord::Base
   enumerize :subtype, in: SUBTYPES
   validates :subtype, presence: true, inclusion: SUBTYPES
 
-  attachment :attached_document # FIXME: # , type: :document
+  attachment :attached_document, type: :document
   validates :attached_document, presence: true
 
   validates :title, presence: true

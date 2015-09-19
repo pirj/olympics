@@ -1,5 +1,6 @@
 require "test_helper"
 
+# TODO
 describe User do
 #  let(:user) { build :user }
 #

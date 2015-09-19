@@ -8,5 +8,10 @@ describe NewsImage do
       must belong_to :news
       must have_db_column :image_id
     end
+
+    it 'validates attributes' do
+      must have_valid(:image_id).when('afgasgsag')
+      # FIXME: wont have_valid(:image_id).when(nil, '')
+    end
   end
 end
