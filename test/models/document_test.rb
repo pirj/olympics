@@ -17,7 +17,8 @@ describe Document do
       must have_valid(:attached_document_id).when('afgasgsag')
       # FIXME: wont have_valid(:attached_document_id).when(nil, '')
       must have_valid(:subtype).when(:federal, :regional, :rsosh, :science)
-      wont have_valid(:subtype).when(nil, '')
+      wont have_valid(:subtype).when(nil, '', :lol)
+      must validate_inclusion_of(:subtype).in_array %w(federal regional rsosh science)
     end
   end
 end

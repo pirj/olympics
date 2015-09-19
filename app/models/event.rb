@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   extend Enumerize
   include Subtypes
+  include AASM
 
   validates :title, presence: true
   validates :description, presence: true
@@ -10,7 +11,7 @@ class Event < ActiveRecord::Base
 
   # TODO: add index
   enumerize :subtype, in: SUBTYPES
-  validates :subtype, presence: true
+  validates :subtype, presence: true, inclusion: SUBTYPES
 
   belongs_to :author, class_name: 'User'
   validates :author, presence: true
@@ -23,4 +24,22 @@ class Event < ActiveRecord::Base
   end
 
   has_and_belongs_to_many :contacts
+
+  aasm do
+    state :draft, initial: true
+    state :published
+    state :archived
+
+    event :publish do
+      transitions from: :draft, to: :published
+    end
+
+    event :unpublish do
+      transitions from: :published, to: :draft
+    end
+
+    event :archive do
+      transitions from: :published, to: :archived
+    end
+  end
 end

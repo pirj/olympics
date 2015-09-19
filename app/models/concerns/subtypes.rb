@@ -1,3 +1,3 @@
 module Subtypes
-  SUBTYPES = [:federal, :regional, :rsosh, :science]
+  SUBTYPES = %w(federal regional rsosh science)
 end

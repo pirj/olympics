@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { in: 6..72 }
   validates :role, presence: true
+
+  belongs_to :contact
 end
