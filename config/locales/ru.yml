@@ -39,6 +39,7 @@ ru:
         start: Дата начала
         finish: Дата окончания
         owner: Ответственное лицо
+        subject: Предмет
 
   attributes:
     created_at: Дата создания
@@ -47,6 +48,7 @@ ru:
     text: Текст
     description: Описание
     subtype: Тип
+    author: Автор
 
 # TODO: fill this with attrs and model names
 
@@ -63,12 +65,6 @@ ru:
         external_user: Пользователь внешней организации
         none: '-'
     defaults:
-      subtype:
-        federal: Всероссийские олимпиады
-        regional: Региональные олимпиады
-        rsosh: Олимпиады РСОШ
-        science: Научная деятельность
-    event:
       subtype:
         federal: Всероссийские олимпиады
         regional: Региональные олимпиады

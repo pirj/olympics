@@ -1,5 +1,5 @@
 ActiveAdmin.register Event do
-  permit_params :title, :description, :subject, :start, :finish, :owner_id
+  permit_params :title, :description, :subject_id, :start, :finish, :owner_id
 
   # TODO:
   # Contacts
