@@ -16,6 +16,7 @@ ru:
       document: Документ
       contact: Контакт
       subject: Предмет
+      event: Мероприятие
 
     attributes:
       user:
@@ -33,6 +34,11 @@ ru:
         email: Электроннй адрес
         organization: Организация
         position: Должность
+      event:
+        title: Название
+        start: Дата начала
+        finish: Дата окончания
+        owner: Ответственное лицо
 
   attributes:
     created_at: Дата создания
@@ -56,7 +62,13 @@ ru:
         tso_user: Пользователь ЦО
         external_user: Пользователь внешней организации
         none: '-'
-    document:
+    defaults:
+      subtype:
+        federal: Всероссийские олимпиады
+        regional: Региональные олимпиады
+        rsosh: Олимпиады РСОШ
+        science: Научная деятельность
+    event:
       subtype:
         federal: Всероссийские олимпиады
         regional: Региональные олимпиады

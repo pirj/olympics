@@ -19,6 +19,8 @@ class Event < ActiveRecord::Base
   belongs_to :owner, class_name: 'User'
   validates :owner, presence: true
 
+  belongs_to :subject
+
   def owner_contact
     owner.contact
   end

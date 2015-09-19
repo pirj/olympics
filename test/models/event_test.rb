@@ -7,6 +7,7 @@ describe Event do
     it 'must have fields and associations' do
       must belong_to(:author).class_name 'User'
       must belong_to(:owner).class_name 'User'
+      must belong_to(:subject)
       must have_and_belong_to_many(:contacts)
       must have_many(:documents).class_name 'EventDocument'
       must have_db_column :title

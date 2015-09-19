@@ -38,7 +38,9 @@ ActiveAdmin.register Document do
         link_to document.attached_document_filename, attachment_url(document, :attached_document, filename: document.attached_document_filename)
       end
       row :attached_document_size
-      row :attached_document_content_type
+      row :attached_document_content_type do |document|
+        t(document.attached_document_content_type)
+      end
       row :created_at
       row :updated_at
     end
