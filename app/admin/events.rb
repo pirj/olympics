@@ -1,6 +1,6 @@
 ActiveAdmin.register Event do
-  permit_params :title, :description, :subject_id, :start, :finish, :owner_id,
-    documents_attributes: [:id, :attached_document, :title, :_destroy],
+  permit_params :title, :description, :excercise, :resolution, :subject_id, :start, :finish, :owner_id,
+    documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
     contacts_events_attributes: [:id, :contact_id, :_destroy]
 
   # TODO: Show intersections
@@ -39,7 +39,7 @@ ActiveAdmin.register Event do
     event.semantic_errors
     event.semantic_errors *event.object.errors.keys
     tabs do
-      tab t(:information, scope: 'enumerize.event_document.section') do
+      tab t(:info, scope: 'enumerize.event_document.section') do
         event.inputs do
           event.input :title
           event.input :description
@@ -49,7 +49,8 @@ ActiveAdmin.register Event do
           event.input :finish, as: :datepicker, datepicker_options: { min_date: Date.current }
         end
         event.inputs do
-          event.has_many :documents, allow_destroy: true, new_record: true do |document|
+          event.has_many :documents, for: [:documents, event.object.documents.with_section(:info)], allow_destroy: true, new_record: true do |document|
+            document.input :section, as: :hidden, value: :info
             document.input :title
             document.input :attached_document, as: :refile
           end
@@ -65,7 +66,7 @@ ActiveAdmin.register Event do
           event.input :excercise
         end
         event.inputs do
-          event.has_many :documents, allow_destroy: true, new_record: true do |document|
+          event.has_many :documents, for: [:documents, event.object.documents.with_section(:excercise)], allow_destroy: true, new_record: true do |document|
             document.input :section, as: :hidden, value: :excercise
             document.input :title
             document.input :attached_document, as: :refile
@@ -77,7 +78,7 @@ ActiveAdmin.register Event do
           event.input :resolution
         end
         event.inputs do
-          event.has_many :documents, allow_destroy: true, new_record: true do |document|
+          event.has_many :documents, for: [:documents, event.object.documents.with_section(:resolution)], allow_destroy: true, new_record: true do |document|
             document.input :section, as: :hidden, value: :resolution
             document.input :title
             document.input :attached_document, as: :refile
@@ -90,7 +91,7 @@ ActiveAdmin.register Event do
 
   show do
     tabs do
-      tab t(:information, scope: 'enumerize.event_document.section') do
+      tab t(:info, scope: 'enumerize.event_document.section') do
         attributes_table do
           row :title
           row :subtype do |document|
