@@ -17,6 +17,7 @@ ru:
       contact: Контакт
       subject: Предмет
       event: Мероприятие
+      faq: Частые Вопросы
 
     attributes:
       user:
@@ -41,6 +42,9 @@ ru:
         owner: Ответственное лицо
         subject: Предмет
         aasm_state: Состояние
+      faq:
+        question: Вопрос
+        answer: Ответ
 
   attributes:
     created_at: Дата создания
