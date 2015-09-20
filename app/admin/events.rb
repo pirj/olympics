@@ -4,7 +4,6 @@ ActiveAdmin.register Event do
   # TODO:
   # Contacts
   # Documents
-  # State [transitions]
   # Owner
   # Show intersections
 
@@ -21,12 +20,12 @@ ActiveAdmin.register Event do
     column :start
     column :finish
     column :owner
-    actions
+    actions # FIXME: remove delete
   end
 
   filter :title
   filter :subtype
-  filter :subject
+  filter :subject #, as: :check_boxes
   filter :aasm_state
   filter :description
   filter :start
@@ -103,5 +102,55 @@ ActiveAdmin.register Event do
       end
 
     end
+  end
+
+  batch_action :destroy, false
+
+  member_action :publish, method: :post do
+    resource.publish!
+    redirect_to admin_event_path resource
+  end
+
+  action_item :publish, only: :show do
+    link_to t(:publish, scope: %w[ active_admin actions labels ]), publish_admin_event_path(event), method: :post if resource.may_publish?
+  end
+
+  batch_action :publish do |ids|
+    Event.where(id: ids).each do |event|
+      event.publish! if event.may_publish?
+    end
+    redirect_to admin_events_path
+  end
+
+  member_action :unpublish, method: :post do
+    resource.unpublish!
+    redirect_to admin_event_path resource
+  end
+
+  action_item :unpublish, only: :show do
+    link_to t(:unpublish, scope: %w[ active_admin actions labels ]), publish_admin_event_path(event), method: :post if resource.may_unpublish?
+  end
+
+  batch_action :unpublish do |ids|
+    Event.where(id: ids).each do |event|
+      event.unpublish! if event.may_unpublish?
+    end
+    redirect_to admin_events_path
+  end
+
+  member_action :archive, method: :post do
+    resource.archive!
+    redirect_to admin_event_path resource
+  end
+
+  action_item :archive, only: :show do
+    link_to t(:archive, scope: %w[ active_admin actions labels ]), publish_admin_event_path(event), method: :post if resource.may_archive?
+  end
+
+  batch_action :archive do |ids|
+    Event.where(id: ids).each do |event|
+      event.archive! if event.may_archive?
+    end
+    redirect_to admin_events_path
   end
 end

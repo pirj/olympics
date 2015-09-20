@@ -41,7 +41,7 @@ class Event < ActiveRecord::Base
     end
 
     event :archive do
-      transitions from: :published, to: :archived
+      transitions from: [:published, :draft], to: :archived
     end
   end
 

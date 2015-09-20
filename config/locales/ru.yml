@@ -79,6 +79,21 @@ ru:
         published: Опубликовано
         archived: В архиве
 
+  active_admin:
+    defaults: &active_admin_actions_defaults
+      labels:
+        publish: Опубликовать
+        unpublish: Снять с публикации
+        archive: Перенести в архив
+    batch_actions:
+      <<: *active_admin_actions_defaults
+    actions:
+      <<: *active_admin_actions_defaults
+    filters:
+      predicates:
+        in: одно из
+        eq: соответствует
+
   events: Мероприятия
   news: Новости
   images: Изображения
