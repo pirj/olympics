@@ -1,6 +1,6 @@
 ActiveAdmin.register Event do
   permit_params :title, :description, :subject_id, :start, :finish, :owner_id,
-    documents_attributes: [ :attached_document, :title, :_destroy ]
+    documents_attributes: [:id, :attached_document, :title, :_destroy]
 
   # TODO:
   # Contacts
@@ -45,7 +45,7 @@ ActiveAdmin.register Event do
       event.input :finish, as: :datepicker, datepicker_options: { min_date: Date.current }
     end
     event.inputs do
-      event.has_many :documents do |document|
+      event.has_many :documents, allow_destroy: true, new_record: true do |document|
         document.input :title
         document.input :attached_document, as: :refile
       end
@@ -80,8 +80,10 @@ ActiveAdmin.register Event do
   end
 
   sidebar I18n.t(:contacts), only: :show do
-    attributes_table do
-
+    event.contacts.map do |contact|
+      div do
+        link_to contact.name, admin_contact_path(contact)
+      end
     end
   end
 
@@ -89,8 +91,6 @@ ActiveAdmin.register Event do
     event.documents.map do |document|
       div do
         link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
-        span document.attached_document_filename
-        span t(document.attached_document_content_type)
       end
     end
   end
