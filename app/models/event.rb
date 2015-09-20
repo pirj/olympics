@@ -21,11 +21,9 @@ class Event < ActiveRecord::Base
 
   belongs_to :subject
 
-  def owner_contact
-    owner.contact
-  end
-
-  has_and_belongs_to_many :contacts
+  has_many :contacts_events
+  accepts_nested_attributes_for :contacts_events, allow_destroy: true
+  has_many :contacts, through: :contacts_events
 
   aasm do
     state :draft, initial: true

@@ -1,10 +1,9 @@
 ActiveAdmin.register Event do
   permit_params :title, :description, :subject_id, :start, :finish, :owner_id,
-    documents_attributes: [:id, :attached_document, :title, :_destroy]
+    documents_attributes: [:id, :attached_document, :title, :_destroy],
+    contacts_events_attributes: [:id, :contact_id, :_destroy]
 
-  # TODO:
-  # Contacts
-  # Show intersections
+  # TODO: Show intersections
 
   index do
     selectable_column
@@ -48,6 +47,11 @@ ActiveAdmin.register Event do
       event.has_many :documents, allow_destroy: true, new_record: true do |document|
         document.input :title
         document.input :attached_document, as: :refile
+      end
+    end
+    event.inputs do
+      event.has_many :contacts_events, allow_destroy: true, new_record: true do |contact|
+        contact.input :contact
       end
     end
     event.actions
