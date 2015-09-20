@@ -4,8 +4,7 @@ ActiveAdmin.register Event do
   # TODO:
   # Contacts
   # Documents
-  # State
-  # Subject
+  # State [transitions]
   # Owner
   # Show intersections
 
@@ -16,6 +15,9 @@ ActiveAdmin.register Event do
       document.subtype.text
     end
     column :subject
+    column :aasm_state do |document|
+      t(document.aasm_state, scope: %w[ aasm event state ])
+    end
     column :start
     column :finish
     column :owner
@@ -25,6 +27,7 @@ ActiveAdmin.register Event do
   filter :title
   filter :subtype
   filter :subject
+  filter :aasm_state
   filter :description
   filter :start
   filter :finish
@@ -39,6 +42,7 @@ ActiveAdmin.register Event do
       event.input :title
       event.input :description
       event.input :subject
+      event.input :owner
       event.input :start, as: :datepicker, datepicker_options: { min_date: Date.current }
       event.input :finish, as: :datepicker, datepicker_options: { min_date: Date.current }
     end
@@ -48,11 +52,14 @@ ActiveAdmin.register Event do
   show do
     attributes_table do
       row :title
-      row :owner
       row :subtype do |document|
         document.subtype.text
       end
       row :subject
+      row :owner
+      row :aasm_state do |document|
+        t(document.aasm_state, scope: %w[ aasm event state ])
+      end
       row :description
       row :start
       row :finish

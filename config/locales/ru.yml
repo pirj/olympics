@@ -40,6 +40,7 @@ ru:
         finish: Дата окончания
         owner: Ответственное лицо
         subject: Предмет
+        aasm_state: Состояние
 
   attributes:
     created_at: Дата создания
@@ -70,6 +71,13 @@ ru:
         regional: Региональные олимпиады
         rsosh: Олимпиады РСОШ
         science: Научная деятельность
+
+  aasm:
+    event:
+      state:
+        draft: Черновик
+        published: Опубликовано
+        archived: В архиве
 
   events: Мероприятия
   news: Новости
