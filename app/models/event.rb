@@ -25,6 +25,9 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :contacts_events, allow_destroy: true
   has_many :contacts, through: :contacts_events
 
+  has_many :documents, class_name: 'EventDocument'
+  accepts_nested_attributes_for :documents, allow_destroy: true
+
   aasm do
     state :draft, initial: true
     state :published
@@ -42,7 +45,4 @@ class Event < ActiveRecord::Base
       transitions from: [:published, :draft], to: :archived
     end
   end
-
-  has_many :documents, class_name: 'EventDocument'
-  accepts_nested_attributes_for :documents, allow_destroy: true
 end

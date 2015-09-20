@@ -7,6 +7,7 @@ describe Document do
     it 'must have fields and associations' do
       must belong_to :event
       must have_db_column :title
+      must have_db_column :section
       must have_db_column :attached_document_id
       must have_db_column :attached_document_filename
       must have_db_column :attached_document_content_type
@@ -16,6 +17,8 @@ describe Document do
     it 'validates attributes' do
       must have_valid(:title).when('asd  asd asd ')
       wont have_valid(:title).when(nil, '')
+      must have_valid(:section).when(*EventDocument.section.values)
+      wont have_valid(:section).when(nil, '')
       must have_valid(:attached_document_id).when('afgasgsag')
       # FIXME: wont have_valid(:attached_document_id).when(nil, '')
     end

@@ -12,6 +12,8 @@ describe Event do
       must have_many(:documents).class_name 'EventDocument'
       must have_db_column :title
       must have_db_column :description
+      must have_db_column :excercise
+      must have_db_column :resolution
       must have_db_column :start
       must have_db_column :finish
       must have_db_column :subtype

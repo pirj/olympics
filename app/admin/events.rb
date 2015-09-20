@@ -61,22 +61,57 @@ ActiveAdmin.register Event do
   end
 
   show do
-    attributes_table do
-      row :title
-      row :subtype do |document|
-        document.subtype.text
+    tabs do
+      tab t(:information) do
+        attributes_table do
+          row :title
+          row :subtype do |document|
+            document.subtype.text
+          end
+          row :subject
+          row :owner
+          row :aasm_state do |document|
+            t(document.aasm_state, scope: %w[ aasm event state ])
+          end
+          row :description
+          row :start
+          row :finish
+          row :author
+          row :created_at
+          row :updated_at
+          panel t(:documents) do
+            event.documents.with_section(:info).map do |document|
+              div do
+                link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
+              end
+            end
+          end
+        end
       end
-      row :subject
-      row :owner
-      row :aasm_state do |document|
-        t(document.aasm_state, scope: %w[ aasm event state ])
+      tab t(:excercise) do
+        attributes_table do
+          row :excercise
+          panel t(:documents) do
+            event.documents.with_section(:excercise).map do |document|
+              div do
+                link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
+              end
+            end
+          end
+        end
       end
-      row :description
-      row :start
-      row :finish
-      row :author
-      row :created_at
-      row :updated_at
+      tab t(:resolution) do
+        attributes_table do
+          row :resolution
+          panel t(:documents) do
+            event.documents.with_section(:resolution).map do |document|
+              div do
+                link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
+              end
+            end
+          end
+        end
+      end
     end
   end
 
@@ -90,14 +125,6 @@ ActiveAdmin.register Event do
     event.contacts.map do |contact|
       div do
         link_to contact.name, admin_contact_path(contact)
-      end
-    end
-  end
-
-  sidebar I18n.t(:documents), only: :show do
-    event.documents.map do |document|
-      div do
-        link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
       end
     end
   end
