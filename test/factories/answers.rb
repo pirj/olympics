@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :answer do
     title { FFaker::Lorem.paragraph }
-    question
+    questionnaire
 
     transient do
       votes_count 2

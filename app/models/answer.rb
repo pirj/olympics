@@ -1,7 +1,7 @@
 class Answer < ActiveRecord::Base
-  belongs_to :question
+  belongs_to :questionnaire
   has_many :votes
 
   validates :title, presence: true
-  validates :question_id, presence: true
+  validates :questionnaire, presence: true
 end

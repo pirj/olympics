@@ -21,6 +21,9 @@ ru:
       registration: Заявка на регистрацию
 
     attributes:
+      questionnaire:
+        starts_on: Дата начала
+        ends_on: Дата окончания
       user:
         username: Имя пользователя
         password: Пароль

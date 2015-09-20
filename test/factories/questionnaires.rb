@@ -5,11 +5,11 @@ FactoryGirl.define do
     ends_on { FFaker::Time.date }
 
     transient do
-      questions_count 2
+      answers_count 2
     end
 
     after(:create) do |questionnaire, evaluator|
-      create_list :question, evaluator.questions_count, questionnaire: questionnaire
+      create_list :answer, evaluator.answers_count, questionnaire: questionnaire
     end
   end
 end

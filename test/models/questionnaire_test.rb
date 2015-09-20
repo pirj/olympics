@@ -5,7 +5,7 @@ describe Questionnaire do
     subject { build :questionnaire }
 
     it 'must have fields and associations' do
-      must have_many :questions
+      must have_many :answers
       must have_db_column :starts_on
       must have_db_column :ends_on
       must have_db_column :title

@@ -5,7 +5,7 @@ describe Answer do
 
   it 'must have fields and associations' do
     must have_many :votes
-    must belong_to :question
+    must belong_to :questionnaire
     must have_db_column :title
   end
 
