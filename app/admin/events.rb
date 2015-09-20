@@ -62,6 +62,30 @@ ActiveAdmin.register Event do
     end
   end
 
+  sidebar I18n.t(:interferences), except: :index do
+    attributes_table do
+      event.documents.map do |document|
+        row :document do
+          # attachment_image_tag
+          # image_tag attachment_url(image, :image)
+        end
+      end
+
+    end
+  end
+
+  sidebar I18n.t(:contacts), only: :show do
+    attributes_table do
+      event.documents.map do |document|
+        row :document do
+          # attachment_image_tag
+          # image_tag attachment_url(image, :image)
+        end
+      end
+
+    end
+  end
+
   sidebar I18n.t(:documents), only: :show do
     attributes_table do
       event.documents.map do |document|

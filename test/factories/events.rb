@@ -7,7 +7,7 @@ FactoryGirl.define do
     subtype { Event.subtype.values.sample }
     subject
     association :author, factory: :user
-    association :owner, factory: :user
+    association :owner, factory: :contact
     external false
   end
 end

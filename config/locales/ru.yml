@@ -88,3 +88,4 @@ ru:
   'application/vnd.openxmlformats-officedocument.wordprocessingml.document': DOCX
   'application/vnd.ms-excel': XLS
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': XLSX
+  interferences: Пересекающиеся мероприятия и события

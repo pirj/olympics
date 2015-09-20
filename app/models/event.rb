@@ -16,7 +16,7 @@ class Event < ActiveRecord::Base
   belongs_to :author, class_name: 'User'
   validates :author, presence: true
 
-  belongs_to :owner, class_name: 'User'
+  belongs_to :owner, class_name: 'Contact'
   validates :owner, presence: true
 
   belongs_to :subject
