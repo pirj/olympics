@@ -105,6 +105,7 @@ ActiveAdmin.register Event do
   end
 
   batch_action :destroy, false
+  config.remove_action_item :destroy
 
   member_action :publish, method: :post do
     resource.publish!
