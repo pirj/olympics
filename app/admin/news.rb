@@ -15,7 +15,7 @@ ActiveAdmin.register News do
   filter :created_at
 
   form do |item|
-    item.semantic_errors # *questionnaire.object.errors.keys
+    item.semantic_errors
     item.semantic_errors *item.object.errors.keys
     item.inputs do
       item.input :title

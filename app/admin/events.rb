@@ -1,10 +1,9 @@
 ActiveAdmin.register Event do
-  permit_params :title, :description, :subject_id, :start, :finish, :owner_id
+  permit_params :title, :description, :subject_id, :start, :finish, :owner_id,
+    documents_attributes: [ :attached_document, :title, :_destroy ]
 
   # TODO:
   # Contacts
-  # Documents
-  # Owner
   # Show intersections
 
   index do
@@ -45,6 +44,12 @@ ActiveAdmin.register Event do
       event.input :start, as: :datepicker, datepicker_options: { min_date: Date.current }
       event.input :finish, as: :datepicker, datepicker_options: { min_date: Date.current }
     end
+    event.inputs do
+      event.has_many :documents do |document|
+        document.input :title
+        document.input :attached_document, as: :refile
+      end
+    end
     event.actions
   end
 
@@ -70,37 +75,23 @@ ActiveAdmin.register Event do
 
   sidebar I18n.t(:interferences), except: :index do
     attributes_table do
-      event.documents.map do |document|
-        row :document do
-          # attachment_image_tag
-          # image_tag attachment_url(image, :image)
-        end
-      end
 
     end
   end
 
   sidebar I18n.t(:contacts), only: :show do
     attributes_table do
-      event.documents.map do |document|
-        row :document do
-          # attachment_image_tag
-          # image_tag attachment_url(image, :image)
-        end
-      end
 
     end
   end
 
   sidebar I18n.t(:documents), only: :show do
-    attributes_table do
-      event.documents.map do |document|
-        row :document do
-          # attachment_image_tag
-          # image_tag attachment_url(image, :image)
-        end
+    event.documents.map do |document|
+      div do
+        link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
+        span document.attached_document_filename
+        span t(document.attached_document_content_type)
       end
-
     end
   end
 
