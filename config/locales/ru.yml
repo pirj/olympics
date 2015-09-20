@@ -18,10 +18,10 @@ ru:
       subject: Предмет
       event: Мероприятие
       faq: Частые Вопросы
+      registration: Заявка на регистрацию
 
     attributes:
       user:
-        email: Адрес электронной почты
         username: Имя пользователя
         password: Пароль
         role: Роль
@@ -30,7 +30,6 @@ ru:
         attached_document_content_type: Формат
         attached_document_size: Размер, байт
       contact:
-        name: ФИО
         phone: Телефон
         email: Электроннй адрес
         organization: Организация
@@ -45,6 +44,8 @@ ru:
       faq:
         question: Вопрос
         answer: Ответ
+      registration:
+        note: Пояснительная записка
 
   attributes:
     created_at: Дата создания
@@ -54,6 +55,9 @@ ru:
     description: Описание
     subtype: Тип
     author: Автор
+    email: Адрес электронной почты
+    name: ФИО
+
 
 # TODO: fill this with attrs and model names
 

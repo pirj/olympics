@@ -18,7 +18,10 @@ ActiveAdmin.register Event do
     column :start
     column :finish
     column :owner
-    actions # FIXME: remove delete
+    actions defaults: false do |event|
+      span item t('active_admin.view'), resource_path(event)
+      span item t('active_admin.edit'), edit_resource_path(event)
+    end
   end
 
   filter :title
