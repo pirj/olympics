@@ -13,7 +13,7 @@ ActiveAdmin.register Event do
     end
     column :subject
     column :aasm_state do |document|
-      t(document.aasm_state, scope: %w[ aasm event state ])
+      t(document.aasm_state, scope: 'aasm.event.state')
     end
     column :start
     column :finish
@@ -38,23 +38,51 @@ ActiveAdmin.register Event do
   form do |event|
     event.semantic_errors
     event.semantic_errors *event.object.errors.keys
-    event.inputs do
-      event.input :title
-      event.input :description
-      event.input :subject
-      event.input :owner
-      event.input :start, as: :datepicker, datepicker_options: { min_date: Date.current }
-      event.input :finish, as: :datepicker, datepicker_options: { min_date: Date.current }
-    end
-    event.inputs do
-      event.has_many :documents, allow_destroy: true, new_record: true do |document|
-        document.input :title
-        document.input :attached_document, as: :refile
+    tabs do
+      tab t(:information, scope: 'enumerize.event_document.section') do
+        event.inputs do
+          event.input :title
+          event.input :description
+          event.input :subject
+          event.input :owner
+          event.input :start, as: :datepicker, datepicker_options: { min_date: Date.current }
+          event.input :finish, as: :datepicker, datepicker_options: { min_date: Date.current }
+        end
+        event.inputs do
+          event.has_many :documents, allow_destroy: true, new_record: true do |document|
+            document.input :title
+            document.input :attached_document, as: :refile
+          end
+        end
+        event.inputs do
+          event.has_many :contacts_events, allow_destroy: true, new_record: true do |contact|
+            contact.input :contact
+          end
+        end
       end
-    end
-    event.inputs do
-      event.has_many :contacts_events, allow_destroy: true, new_record: true do |contact|
-        contact.input :contact
+      tab t(:excercise, scope: 'enumerize.event_document.section') do
+        event.inputs do
+          event.input :excercise
+        end
+        event.inputs do
+          event.has_many :documents, allow_destroy: true, new_record: true do |document|
+            document.input :section, as: :hidden, value: :excercise
+            document.input :title
+            document.input :attached_document, as: :refile
+          end
+        end
+      end
+      tab t(:resolution, scope: 'enumerize.event_document.section') do
+        event.inputs do
+          event.input :resolution
+        end
+        event.inputs do
+          event.has_many :documents, allow_destroy: true, new_record: true do |document|
+            document.input :section, as: :hidden, value: :resolution
+            document.input :title
+            document.input :attached_document, as: :refile
+          end
+        end
       end
     end
     event.actions
@@ -62,7 +90,7 @@ ActiveAdmin.register Event do
 
   show do
     tabs do
-      tab t(:information) do
+      tab t(:information, scope: 'enumerize.event_document.section') do
         attributes_table do
           row :title
           row :subtype do |document|
@@ -71,7 +99,7 @@ ActiveAdmin.register Event do
           row :subject
           row :owner
           row :aasm_state do |document|
-            t(document.aasm_state, scope: %w[ aasm event state ])
+            t(document.aasm_state, scope: 'aasm.event.state')
           end
           row :description
           row :start
@@ -88,7 +116,7 @@ ActiveAdmin.register Event do
           end
         end
       end
-      tab t(:excercise) do
+      tab t(:excercise, scope: 'enumerize.event_document.section') do
         attributes_table do
           row :excercise
           panel t(:documents) do
@@ -100,7 +128,7 @@ ActiveAdmin.register Event do
           end
         end
       end
-      tab t(:resolution) do
+      tab t(:resolution, scope: 'enumerize.event_document.section') do
         attributes_table do
           row :resolution
           panel t(:documents) do
@@ -138,7 +166,7 @@ ActiveAdmin.register Event do
   end
 
   action_item :publish, only: :show do
-    link_to t(:publish, scope: %w[ active_admin actions labels ]), publish_admin_event_path(event), method: :post if resource.may_publish?
+    link_to t(:publish, scope: 'active_admin.actions.labels'), publish_admin_event_path(event), method: :post if resource.may_publish?
   end
 
   batch_action :publish do |ids|
@@ -154,7 +182,7 @@ ActiveAdmin.register Event do
   end
 
   action_item :unpublish, only: :show do
-    link_to t(:unpublish, scope: %w[ active_admin actions labels ]), publish_admin_event_path(event), method: :post if resource.may_unpublish?
+    link_to t(:unpublish, scope: 'active_admin.actions.labels'), publish_admin_event_path(event), method: :post if resource.may_unpublish?
   end
 
   batch_action :unpublish do |ids|
@@ -170,7 +198,7 @@ ActiveAdmin.register Event do
   end
 
   action_item :archive, only: :show do
-    link_to t(:archive, scope: %w[ active_admin actions labels ]), publish_admin_event_path(event), method: :post if resource.may_archive?
+    link_to t(:archive, scope: 'active_admin.actions.labels'), publish_admin_event_path(event), method: :post if resource.may_archive?
   end
 
   batch_action :archive do |ids|

@@ -44,6 +44,8 @@ ru:
         owner: Ответственное лицо
         subject: Предмет
         aasm_state: Состояние
+        excercise: Задания и ответы
+        resolution: События и итоги
       faq:
         question: Вопрос
         answer: Ответ
@@ -60,7 +62,6 @@ ru:
     author: Автор
     email: Адрес электронной почты
     name: ФИО
-
 
 # TODO: fill this with attrs and model names
 
@@ -82,6 +83,11 @@ ru:
         regional: Региональные олимпиады
         rsosh: Олимпиады РСОШ
         science: Научная деятельность
+    event_document:
+      section:
+        information: Информация
+        excercise: Задания и ответы
+        resolution: События и итоги
 
   aasm:
     event:
