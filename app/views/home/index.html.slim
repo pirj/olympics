@@ -1,5 +1,7 @@
 =render 'home/slider'
 
 .container
-  =render partial: 'home/trinity', locals: { news: news, docs: docs, questionnaires: questionnaires }
-  =render partial: 'home/links', locals: { links: links }
+  .content
+    =render partial: 'home/calendar', locals: { events: events }
+    =render partial: 'home/trinity', locals: { news: news, docs: docs, questionnaires: questionnaires }
+    =render partial: 'home/links', locals: { links: links }

@@ -1,11 +1,7 @@
-.container
-  .content
-    .calendar
-
-    .additional_links
-      .additional_link.doc
-        = render partial: 'docs', locals: { docs: docs }
-      .additional_link
-        = render partial: 'news', locals: { news: news }
-      .additional_link
-        = render partial: 'questionnaires', locals: { questionnaires: questionnaires }
+.additional_links
+  .additional_link.doc
+    = render partial: 'docs', locals: { docs: docs }
+  .additional_link
+    = render partial: 'news', locals: { news: news }
+  .additional_link
+    = render partial: 'questionnaires', locals: { questionnaires: questionnaires }
