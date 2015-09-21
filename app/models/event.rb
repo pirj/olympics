@@ -25,8 +25,14 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :contacts_events, allow_destroy: true
   has_many :contacts, through: :contacts_events
 
-  has_many :documents, class_name: 'EventDocument'
-  accepts_nested_attributes_for :documents, allow_destroy: true
+  has_many :info_documents, -> { where section: :info }, class_name: 'EventDocument'
+  accepts_nested_attributes_for :info_documents, allow_destroy: true
+
+  has_many :excercise_documents, -> { where section: :excercise }, class_name: 'EventDocument'
+  accepts_nested_attributes_for :excercise_documents, allow_destroy: true
+
+  has_many :resolution_documents, -> { where section: :resolution }, class_name: 'EventDocument'
+  accepts_nested_attributes_for :resolution_documents, allow_destroy: true
 
   aasm do
     state :draft, initial: true

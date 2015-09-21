@@ -9,7 +9,9 @@ describe Event do
       must belong_to(:owner).class_name 'Contact'
       must belong_to(:subject)
       must have_many(:contacts).through :contacts_events
-      must have_many(:documents).class_name 'EventDocument'
+      must have_many(:info_documents).class_name 'EventDocument'
+      must have_many(:excercise_documents).class_name 'EventDocument'
+      must have_many(:resolution_documents).class_name 'EventDocument'
       must have_db_column :title
       must have_db_column :description
       must have_db_column :excercise

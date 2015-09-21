@@ -1,6 +1,8 @@
 ActiveAdmin.register Event do
   permit_params :title, :description, :excercise, :resolution, :subject_id, :start, :finish, :owner_id,
-    documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
+    info_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
+    excercise_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
+    resolution_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
     contacts_events_attributes: [:id, :contact_id, :_destroy]
 
   # TODO: Show intersections
@@ -49,8 +51,8 @@ ActiveAdmin.register Event do
           event.input :finish, as: :datepicker, datepicker_options: { min_date: Date.current }
         end
         event.inputs do
-          event.has_many :documents, for: [:documents, event.object.documents.with_section(:info)], allow_destroy: true, new_record: true do |document|
-            document.input :section, as: :hidden, value: :info
+          event.has_many :info_documents, allow_destroy: true, new_record: true do |document|
+            document.input :section, as: :hidden
             document.input :title
             document.input :attached_document, as: :refile
           end
@@ -66,8 +68,8 @@ ActiveAdmin.register Event do
           event.input :excercise
         end
         event.inputs do
-          event.has_many :documents, for: [:documents, event.object.documents.with_section(:excercise)], allow_destroy: true, new_record: true do |document|
-            document.input :section, as: :hidden, value: :excercise
+          event.has_many :excercise_documents, allow_destroy: true, new_record: true do |document|
+            document.input :section, as: :hidden
             document.input :title
             document.input :attached_document, as: :refile
           end
@@ -78,8 +80,8 @@ ActiveAdmin.register Event do
           event.input :resolution
         end
         event.inputs do
-          event.has_many :documents, for: [:documents, event.object.documents.with_section(:resolution)], allow_destroy: true, new_record: true do |document|
-            document.input :section, as: :hidden, value: :resolution
+          event.has_many :resolution_documents, allow_destroy: true, new_record: true do |document|
+            document.input :section, as: :hidden
             document.input :title
             document.input :attached_document, as: :refile
           end
@@ -109,7 +111,7 @@ ActiveAdmin.register Event do
           row :created_at
           row :updated_at
           panel t(:documents) do
-            event.documents.with_section(:info).map do |document|
+            event.info_documents.map do |document|
               div do
                 link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
               end
@@ -121,7 +123,7 @@ ActiveAdmin.register Event do
         attributes_table do
           row :excercise
           panel t(:documents) do
-            event.documents.with_section(:excercise).map do |document|
+            event.excercise_documents.map do |document|
               div do
                 link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
               end
@@ -133,7 +135,7 @@ ActiveAdmin.register Event do
         attributes_table do
           row :resolution
           panel t(:documents) do
-            event.documents.with_section(:resolution).map do |document|
+            event.resolution_documents.map do |document|
               div do
                 link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
               end
