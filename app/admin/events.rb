@@ -146,9 +146,17 @@ ActiveAdmin.register Event do
     end
   end
 
-  sidebar I18n.t(:interferences), except: :index do
-    attributes_table do
-
+  sidebar I18n.t(:interferences), only: :show do
+    div id: :intersections do
+      event.intersections.each do |other|
+        div do
+          a href: admin_event_path(other) do
+            span other.title
+          end
+          span other.start
+          span other.finish
+        end
+      end
     end
   end
 
