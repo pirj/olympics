@@ -72,4 +72,37 @@ describe Event do
       end
     end
   end
+
+  describe 'intersections' do
+    # 01234567890123456
+    before do
+      @intersected = [
+    #    <-------->
+        create(:event, start:  3.days.from_now, finish: 12.days.from_now),
+    #        <->
+        create(:event, start:  7.days.from_now, finish:  9.days.from_now),
+    #          <---->
+        create(:event, start:  9.days.from_now, finish: 14.days.from_now),
+    #  <----->
+        create(:event, start:  1.days.from_now, finish:  7.days.from_now),
+      ]
+      @non_intersected = [
+    # <-->
+        create(:event, start:  0.days.from_now, finish:  3.days.from_now),
+    #              <-->
+        create(:event, start: 13.days.from_now, finish: 16.days.from_now),
+      ]
+      @central =
+    #      <----->
+        create(:event, start:  5.days.from_now, finish: 11.days.from_now)
+    end
+
+    subject { @central.intersections }
+
+    describe 'finds all and only intersects' do
+      it 'intersects correctly' do
+        subject.must_equal @intersected
+      end
+    end
+  end
 end

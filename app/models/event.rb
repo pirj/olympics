@@ -51,4 +51,8 @@ class Event < ActiveRecord::Base
       transitions from: [:published, :draft], to: :archived
     end
   end
+
+  def intersections
+    Event.where('NOT (id = ?) AND start <= ? AND finish >= ?', id, finish, start)
+  end
 end
