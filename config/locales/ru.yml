@@ -1,7 +1,13 @@
 ru:
-  date:
+  defaults: &date_time_defaults
     formats:
-      default: "%d %B %Y г."
+       default: "%d %B %Y г."
+       short: "%d.%m.%Y"
+  date:
+    <<: *date_time_defaults
+  time:
+    <<: *date_time_defaults
+
 
   activerecord:
     models:

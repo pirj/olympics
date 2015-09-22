@@ -2,6 +2,6 @@
 
 .container
   .content
-    =render partial: 'home/calendar', locals: { events: events }
+    =render partial: 'home/calendar', locals: { filters: filters, events: events }
     =render partial: 'home/trinity', locals: { news: news, docs: docs, questionnaires: questionnaires }
     =render partial: 'home/links', locals: { links: links }

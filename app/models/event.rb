@@ -57,4 +57,8 @@ class Event < ActiveRecord::Base
   end
 
   scope :internal_only, -> { where external: false }
+
+  scope :year, -> year { where 'start >= ? AND finish <= ?', Time.new(year), Time.new(year).end_of_year }
+  scope :month, -> month { where "strftime('%m', start) = ?", month.to_s.rjust(2, '0') }
+  scope :text, -> text { where('title LIKE ? or description LIKE ?', *(["%#{text}%"]*2)) }
 end

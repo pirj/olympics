@@ -12,4 +12,5 @@ Rails.application.routes.draw do
       post :index
     end
   end
+  resources :events, only: [:index, :show]
 end
