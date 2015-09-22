@@ -1,11 +1,15 @@
 ActiveAdmin.register Event do
-  permit_params :title, :description, :excercise, :resolution, :subject_id, :start, :finish, :owner_id,
+  permit_params :title, :description, :subtype, :external, :excercise, :resolution, :subject_id, :start, :finish, :owner_id,
     info_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
     excercise_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
     resolution_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
     contacts_events_attributes: [:id, :contact_id, :_destroy]
 
-  # TODO: Show intersections
+  # permit_params do
+  #   params = [:title, :content, :publisher_id]
+  #   params.push :author_id if current_user.admin?
+  #   params
+  # end
 
   index do
     selectable_column
@@ -38,6 +42,10 @@ ActiveAdmin.register Event do
   filter :author
   filter :owner
   filter :created_at
+
+  before_save do |event|
+    event.author = current_user
+  end
 
   form do |event|
     event.semantic_errors
