@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 gem 'thin'
 
+gem 'rails_12factor', group: :production
+
 gem 'sqlite3', groups: [:development, :test]
 gem 'pg', group: :production
 gem 'immigrant'
