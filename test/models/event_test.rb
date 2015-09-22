@@ -105,4 +105,18 @@ describe Event do
       end
     end
   end
+
+  describe 'externality' do
+    before do
+      @external = create :event, external: true
+      @internal = create :event, external: false
+    end
+
+    describe 'internal only' do
+      subject { Event.internal_only }
+      it 'show internal only' do
+        subject.must_equal [ @internal ]
+      end
+    end
+  end
 end

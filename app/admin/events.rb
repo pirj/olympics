@@ -13,6 +13,7 @@ ActiveAdmin.register Event do
     column :subtype do |document|
       document.subtype.text
     end
+    column :external
     column :subject
     column :aasm_state do |document|
       t(document.aasm_state, scope: 'aasm.event.state')
@@ -27,8 +28,9 @@ ActiveAdmin.register Event do
   end
 
   filter :title
-  filter :subtype
-  filter :subject #, as: :check_boxes
+  filter :subtype, as: :select
+  filter :external
+  filter :subject, as: :select
   filter :aasm_state
   filter :description
   filter :start
@@ -45,6 +47,8 @@ ActiveAdmin.register Event do
         event.inputs do
           event.input :title
           event.input :description
+          event.input :subtype
+          event.input :external
           event.input :subject
           event.input :owner
           event.input :start, as: :datepicker, datepicker_options: { min_date: Date.current }
@@ -99,6 +103,7 @@ ActiveAdmin.register Event do
           row :subtype do |document|
             document.subtype.text
           end
+          row :external
           row :subject
           row :owner
           row :aasm_state do |document|

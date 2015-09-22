@@ -55,4 +55,6 @@ class Event < ActiveRecord::Base
   def intersections
     Event.where('NOT (id = ?) AND start <= ? AND finish >= ?', id, finish, start)
   end
+
+  scope :internal_only, -> { where external: false }
 end

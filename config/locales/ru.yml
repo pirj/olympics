@@ -43,6 +43,7 @@ ru:
         finish: Дата окончания
         owner: Ответственное лицо
         subject: Предмет
+        external: Внешнее
         aasm_state: Состояние
         excercise: Задания и ответы
         resolution: События и итоги
