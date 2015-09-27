@@ -8,7 +8,7 @@
   h1.calendar Мероприятия
   ul.calendar_year
     - (Time.current.year.pred..Time.current.year.next).each do |year|
-      - if year == params[:year]
+      - if year == params[:year].to_i
         li.active
           = link_to events_path(filters.merge(year: year)) do
             = year

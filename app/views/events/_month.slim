@@ -1,6 +1,6 @@
-.calendar_content class="#{'today' if (Time.current.year == params[:year] && Time.current.month == month)}"
+.calendar_content class="#{'today' if (Time.current.year == params[:year].to_i && Time.current.month == month)}"
   a name = I18n.t('date.month_names_single')[month]
-  h2 class="#{'today' if (Time.current.year == params[:year] && Time.current.month == month)}" = I18n.t('date.month_names_single')[month]
+  h2 class="#{'today' if (Time.current.year == params[:year].to_i && Time.current.month == month)}" = I18n.t('date.month_names_single')[month]
 
   - events.group_by {|e| [e.start, e.external] }.each do |(date, external), day_events|
     .calendar_day class="#{'today' if Date.current == date} #{'green' if external}"
