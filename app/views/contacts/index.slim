@@ -1,0 +1,32 @@
+.container
+  .breadcrumbs
+    a href="/" Главная
+    | /
+    span Контакты
+
+.container
+  h1.documents Контакты
+
+  .documents_search
+    = render partial: 'contacts/search', locals: { filter: filter }
+
+  .top_content
+    .contacts
+      - contacts.each do |contact|
+
+        .contacts_teacher
+          .contacts_teacher_img
+            = image_tag attachment_url(contact, :image, :fit, 90, 90)
+          .contacts_teacher_info
+            p.contacts_teacher_name = contact.name
+            p.contacts_teacher_work
+              = contact.organization
+              br
+              = contact.position
+          p.contacts_teacher_fone
+            = contact.phone
+            br
+            = contact.email
+
+  .right_sidebar
+    /* = render partial: 'documents/sidebar', locals: { filter: filter } */

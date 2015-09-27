@@ -11,4 +11,6 @@ class Contact < ActiveRecord::Base
   has_many :in_charge, class_name: 'Event'
 
   has_one :user
+
+  scope :by_text, -> text { where('name LIKE ? or organization LIKE ? or position LIKE ?', *(["%#{text}%"]*3)) }
 end

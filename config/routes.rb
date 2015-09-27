@@ -13,4 +13,9 @@ Rails.application.routes.draw do
     end
   end
   resources :events, only: [:index, :show]
+  resources :contacts, only: [:index] do
+    collection do
+      post :index
+    end
+  end
 end
