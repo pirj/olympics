@@ -1,0 +1,20 @@
+= form_tag "", method: :get do
+
+  p.filter_name
+    | Олимпиады
+    - Event.subtype.values.each do |subtype|
+      p
+        = check_box_tag "subtypes[]", subtype, filters[:subtypes].include?(subtype), id: subtype, class: 'checkbox'
+        label for=subtype
+          = subtype.text
+
+  p.filter_name.two
+    | Предметы
+    - Subject.all.each do |subject|
+      p
+        = check_box_tag "subjects[]", subject.friendly_id, filters[:subjects].include?(subject.friendly_id), id: subject.friendly_id, class: 'checkbox'
+        label for=subject.friendly_id
+          = subject.title
+  p
+    = link_to events_path, class: 'button' do
+      | Сбросить значения фильтра

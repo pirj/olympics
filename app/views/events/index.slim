@@ -1,0 +1,32 @@
+.container
+  .breadcrumbs
+    a href="/" Главная
+    | /
+    span Мероприятия
+
+.container
+  h1.calendar Мероприятия
+  ul.calendar_year
+    - (Time.current.year.pred..Time.current.year.next).each do |year|
+      - if year == params[:year]
+        li.active
+          = link_to events_path(filters.merge(year: year)) do
+            = year
+      - else
+        li
+          = link_to events_path(filters.merge(year: year)) do
+            = year
+
+  ul.calendar_moon
+    - I18n.t('date.month_names_single')[1..-1].each_with_index do |month, index|
+      li
+        a href="##{month}"
+          = month
+
+  .top_content
+    - events.group_by {|e| e.start.month }.each do |month, month_events|
+      = render partial: 'events/month', locals: { month: month, events: month_events }
+
+  .right_sidebar
+    .quest_filter
+      = render partial: 'events/filters', locals: { filters: filters }

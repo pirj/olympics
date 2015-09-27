@@ -1,0 +1,10 @@
+p
+  = link_to event_path(event) do
+    = event.title
+span = event.subtype.text
+br
+span = event.subject.title
+br
+span Класс: 9-11 класс
+br
+span = event.longevity

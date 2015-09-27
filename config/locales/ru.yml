@@ -6,6 +6,7 @@ ru:
        short: "%d.%m.%Y"
   date:
     <<: *date_time_defaults
+    month_names_single: [~, Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
   time:
     <<: *date_time_defaults
 
