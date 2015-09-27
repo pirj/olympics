@@ -43,42 +43,39 @@
           span.calendar_news
             - event_pair.each do |event|
               p.calendar_one_news
-                span.today Сегодня 1 января
-                /* <span class="evry">15 января</span> */
+                span class="#{'today' if Date.current == event.start}"
+                  - if Date.current == event.start
+                    | Сегодня&nbsp;
+                  = l(event.start, format: :noyear)
                 br
-                =link_to events_path(event) do
+                =link_to event_path(event) do
                   =event.title
                 br
-                a.category Русский язык
+                a.category = event.subject.title
                 br
                 span = event.longevity
 
-  <div class="categories">
-    <div class="category_one">
-      <div class="image">
-        <img src="/images/category1.png">
-      </div>
-      <a href="#">Олимпиада РСОШ</a>
-    </div>
+  .categories
+    .category_one
+      =link_to events_path(subtypes: [:rsosh])
+        .image
+          = image_tag 'category1.png'
+        | Олимпиада РСОШ
 
-    <div class="category_one">
-      <div class="image">
-        <img src="/images/category2.png">
-      </div>
-      <a href="#">Региональная олимпиада</a>
-    </div>
+    .category_one
+      =link_to events_path(subtypes: [:regional])
+        .image
+          = image_tag 'category2.png'
+        | Региональная олимпиада
 
-    <div class="category_one">
-      <div class="image">
-        <img src="/images/category3.png">
-      </div>
-      <a href="#">Всероссийская олимпиада</a>
-    </div>
+    .category_one
+      =link_to events_path(subtypes: [:federal])
+        .image
+          = image_tag 'category3.png'
+        | Всероссийская олимпиада
 
-    <div class="category_one">
-      <div class="image">
-        <img src="/images/category4.png">
-      </div>
-      <a href="#">Научная деятельность</a>
-    </div>
-  </div>
+    .category_one
+      =link_to events_path(subtypes: [:science])
+        .image
+          = image_tag 'category4.png'
+        | Научная деятельность
