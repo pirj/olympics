@@ -2,8 +2,14 @@ class EventDecorator < Draper::Decorator
   delegate_all
 
   def longevity
-    object.created_at.strftime("%a %m/%d/%y")
-# Длительность: 1 день</span>
-          # <span>Длительность: с 15-18 января</span>
+    if object.start == object.finish
+      I18n.t(:single_day, scope: 'activerecord.attributes.event.longevity')
+    elsif object.start.month == object.finish.month
+      I18n.t(:period, scope: 'activerecord.attributes.event.longevity', start: object.start.day, finish: I18n.l(object.finish, format: :noyear))
+    elsif object.start.year == object.finish.year
+      I18n.t(:period, scope: 'activerecord.attributes.event.longevity', start: I18n.l(object.start.day, format: :noyear), finish: I18n.l(object.finish, format: :noyear))
+    else
+      I18n.t(:period, scope: 'activerecord.attributes.event.longevity', start: I18n.l(object.start.day), finish: I18n.l(object.finish))
+    end
   end
 end

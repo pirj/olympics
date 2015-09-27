@@ -2,6 +2,7 @@ ru:
   defaults: &date_time_defaults
     formats:
        default: "%d %B %Y г."
+       noyear: "%d %B"
        short: "%d.%m.%Y"
   date:
     <<: *date_time_defaults
@@ -53,6 +54,9 @@ ru:
         aasm_state: Состояние
         excercise: Задания и ответы
         resolution: События и итоги
+        longevity:
+          single_day: "Длительность: 1 день"
+          period: "Длительность: с %{start}-%{finish}"
       faq:
         question: Вопрос
         answer: Ответ
