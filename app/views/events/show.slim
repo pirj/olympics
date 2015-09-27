@@ -1,0 +1,43 @@
+.container
+  .breadcrumbs
+    a href="/" Главная
+    | /
+    = link_to events_path do 
+      | Мероприятия
+    | /
+    span = event.title
+
+.container
+  .olimpic
+
+    .top_content
+      h1 = event.title
+      p.upp_head
+        = event.longevity
+        | ,&nbsp;
+        = event.subtype.text
+        | ,&nbsp;
+        = event.subject.title
+
+      #tab_block.switching_tabs.cont
+        ul#tabs
+          li.tab
+            a.tabulous_active href="#tab1" Информация
+            li.tab
+              a href="#tab2" Задания и ответ
+            li.tab
+              a href="#tab3" События и итоги
+
+        #tabs_content
+          #tab1.tab_content.active
+            =render partial: 'events/section', locals: { text: event.description, documents: event.info_documents }
+
+          #tab2.tab_content
+            =render partial: 'events/section', locals: { text: event.excercise, documents: event.excercise_documents }
+
+          #tab3.tab_content
+            =render partial: 'events/section', locals: { text: event.resolution, documents: event.resolution_documents }
+
+    .right_sidebar
+      .right_contacts
+        =render partial: 'events/contacts', locals: { contacts: event.contacts }

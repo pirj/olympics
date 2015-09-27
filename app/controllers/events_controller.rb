@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  include DocumentsHelper
+
   has_scope :year
   has_scope :by_subtypes, as: :subtypes
   has_scope :by_subjects, as: :subjects
@@ -13,6 +15,6 @@ class EventsController < ApplicationController
   end
 
   def show
-
+    render :show, locals: { event: Event.find(params[:id]).decorate }
   end
 end

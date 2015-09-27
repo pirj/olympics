@@ -2,9 +2,9 @@
   var initialize = function(){
     new flickerplate('.flicker-example');
 
-    // $('#tabs').tabulous({
-    //   effect: 'slideLeft'
-    // });
+    $('.switching_tabs').tabulous({
+      effect: 'slideLeft'
+    });
 
     $('.owl-carousel').owlCarousel({
       loop:true,
