@@ -18,4 +18,5 @@ Rails.application.routes.draw do
       post :index
     end
   end
+  resources :registrations, only: [:new, :create]
 end

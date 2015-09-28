@@ -2,9 +2,8 @@ footer
   .container
     .copyright_year © 2015
 
-    .copyright Единый информационный портал о научной-исследоватльской деятельности и олимпиадном движении</div>
+    .copyright Единый информационный портал о научной-исследоватльской деятельности и олимпиадном движении
     .footer_links
       = link_to t(:qna), home_index_path
-      = link_to t(:contacts), home_index_path
-      = link_to t(:admin_login), new_user_session_path
-      a data-reveal-id="myModal" href="#" Войти в личный кабинет
+      = link_to t(:contacts), contacts_path
+      a data-reveal-id="login-form" href="#" Войти в личный кабинет

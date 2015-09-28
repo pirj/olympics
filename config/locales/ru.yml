@@ -64,6 +64,13 @@ ru:
       registration:
         note: Пояснительная записка
 
+    errors:
+      models:
+        registration:
+          attributes:
+            email:
+              invalid_email_address: неверный email
+
   attributes:
     created_at: Дата создания
     updated_at: Дата обновления
@@ -141,3 +148,8 @@ ru:
   'application/vnd.ms-excel': XLS
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': XLSX
   interferences: Пересекающиеся мероприятия и события
+  registration_created: Заявка на регистрацию принята
+
+  formtastic:
+    actions:
+      register: Отправить заявку

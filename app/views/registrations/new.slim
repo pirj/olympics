@@ -1,0 +1,22 @@
+.container
+  .breadcrumbs
+    a href="/" Главная
+    | /
+    span Регистрация
+
+.container
+  h1 Регистрация
+  p.upp_head
+    | Если вы уже регистрировались на портале —&nbsp;
+    a data-reveal-id="login-form" href="#" войдите под своим логином
+
+  = semantic_form_for registration do |f|
+    = f.inputs do
+      = f.input :name
+      = f.input :email, as: :string
+      = f.input :note, as: :text
+    = f.actions do
+      = f.action :submit, label: :register, as: :button, class: "button_reg"
+      span
+        | Нажимая кнопку «Отправить заявку», вы подтверждаете свое согласие с&nbsp;
+        a href="#" Правилами пользования порталом

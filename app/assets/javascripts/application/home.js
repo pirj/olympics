@@ -2,10 +2,6 @@
   var initialize = function(){
     new flickerplate('.flicker-example');
 
-    $('.switching_tabs').tabulous({
-      effect: 'slideLeft'
-    });
-
     $('.owl-carousel').owlCarousel({
       loop:true,
       margin:10,
@@ -13,7 +9,6 @@
       autoplay:true,
       autoplayTimeout:5000,
       responsive:{
-
         1000:{
           items:4
         }

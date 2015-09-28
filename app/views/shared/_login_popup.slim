@@ -1,21 +1,20 @@
-#myModal.reveal-modal
+#login-form.reveal-modal
   .login_pop
-    .user_menu
-      Войти на сайт
+    .user_menu Войти на сайт
 
     form method="post"
       p
         input name="login" placeholder="Логин" type="text"
-        input name="password" placeholder="Пароль" type="text"
-      p.remember_me
-        input#checkbox10.checkbox type="checkbox"
-        label for="checkbox10" Чужой компьютер
-      .login-help
-        a href="#" Вспомнить пароль
+      p
+        input name="password" placeholder="Пароль" type="password"
+      /* p.remember_me */
+      /*   input#checkbox10.checkbox type="checkbox" */
+      /*   label for="checkbox10" Чужой компьютер */
       div style="clear: both;"
       p.submit
         input name="commit" type="submit" value="Войти"
       p.regist
-        a href="/regist.html" Регистрация
+        = link_to new_registration_path do
+          | Регистрация
 
   a.close-reveal-modal &#215;

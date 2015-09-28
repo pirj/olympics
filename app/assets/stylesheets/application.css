@@ -1,4 +1,5 @@
 /*
+ *= require formtastic
  *= require flickerplate
  *= require_self
  *= require_tree ./lib
