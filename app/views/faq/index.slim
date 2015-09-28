@@ -1,0 +1,21 @@
+.container
+  .breadcrumbs
+    a href="/" Главная
+    | /
+    span Документы
+
+.container
+  h1 Вопросы и ответы
+
+  .virtual
+    h1 Виртуальный помощник
+
+    = render partial: 'faq/search', locals: { filter: filter }
+
+  /* <div class="vote_button"><a href="#">Задать вопрос</a></div> */
+
+  .faq
+    - faqs.each do |faq|
+      .spoiler.close
+        h2 = faq.question
+        .block = faq.answer

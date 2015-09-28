@@ -5,18 +5,17 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   get 'home/index'
+
   resources :news, only: [:index, :show]
   resources :links, only: [:index]
-  resources :documents, only: [:index] do
-    collection do
-      post :index
-    end
-  end
   resources :events, only: [:index, :show]
-  resources :contacts, only: [:index] do
-    collection do
-      post :index
+  resources :registrations, only: [:new, :create]
+
+  [:documents, :contacts, :faq].each do |page|
+    resources page, only: [:index] do
+      collection do
+        post :index
+      end
     end
   end
-  resources :registrations, only: [:new, :create]
 end
