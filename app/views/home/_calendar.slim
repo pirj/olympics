@@ -30,12 +30,8 @@
     ul#tabs
       - I18n.t('date.month_names_single')[1..-1].each_with_index do |month, index|
         li
-          - if (index+1) == params[:month].to_i
-            = link_to home_index_path(filters.merge(month: index+1)), class: 'tab active' do
-              = month
-          - else
-            = link_to home_index_path(filters.merge(month: index+1)), class: 'tab' do
-              = month
+          = link_to home_index_path(filters.merge(month: index+1)), class: "tab #{'tabulous_active' if (index+1) == params[:month].to_i}" do
+            = month
 
     #tabs_content
       .tab_content.active
