@@ -1,5 +1,6 @@
 p.additional_news
-  a href="#" Новости
+  = link_to news_index_path do
+    | Новости
 - news.each do |item|
   p.additional_news_link
     =link_to item do

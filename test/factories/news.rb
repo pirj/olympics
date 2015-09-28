@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :news do
-    title { FFaker::Lorem.words(3) }
+    title { FFaker::Lorem.phrase }
     text { FFaker::Lorem.paragraph }
     association :author, factory: :user
   end
