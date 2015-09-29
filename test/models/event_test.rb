@@ -8,6 +8,7 @@ describe Event do
       must belong_to(:author).class_name 'User'
       must belong_to(:owner).class_name 'Contact'
       must belong_to(:subject)
+      must belong_to(:category)
       must have_many(:contacts).through :contacts_events
       must have_many(:info_documents).class_name 'EventDocument'
       must have_many(:excercise_documents).class_name 'EventDocument'

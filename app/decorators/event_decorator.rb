@@ -12,4 +12,8 @@ class EventDecorator < Draper::Decorator
       I18n.t(:period, scope: 'activerecord.attributes.event.longevity', start: I18n.l(object.start), finish: I18n.l(object.finish))
     end
   end
+
+  def category_title
+    category.try(:title)
+  end
 end

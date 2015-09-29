@@ -1,5 +1,5 @@
 ActiveAdmin.register Event do
-  permit_params :title, :description, :subtype, :external, :excercise, :resolution, :subject_id, :start, :finish, :owner_id,
+  permit_params :title, :description, :subtype, :external, :excercise, :resolution, :subject_id, :start, :finish, :owner_id, :category_id,
     info_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
     excercise_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
     resolution_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
@@ -19,6 +19,9 @@ ActiveAdmin.register Event do
     end
     column :external
     column :subject
+    column :category do |document|
+      document.decorate.category_title
+    end
     column :aasm_state do |document|
       t(document.aasm_state, scope: 'aasm.event.state')
     end
@@ -35,6 +38,7 @@ ActiveAdmin.register Event do
   filter :subtype, as: :select
   filter :external
   filter :subject, as: :select
+  filter :category, as: :select
   filter :aasm_state
   filter :description
   filter :start
@@ -56,6 +60,7 @@ ActiveAdmin.register Event do
           event.input :title
           event.input :description
           event.input :subtype
+          event.input :category
           event.input :external
           event.input :subject
           event.input :owner
@@ -113,6 +118,9 @@ ActiveAdmin.register Event do
           end
           row :external
           row :subject
+          row :category do |document|
+            document.decorate.category_title
+          end
           row :owner
           row :aasm_state do |document|
             t(document.aasm_state, scope: 'aasm.event.state')

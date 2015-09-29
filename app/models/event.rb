@@ -13,6 +13,9 @@ class Event < ActiveRecord::Base
   enumerize :subtype, in: SUBTYPES
   validates :subtype, presence: true, inclusion: SUBTYPES
 
+  belongs_to :category
+  validates :category, presence: true
+
   belongs_to :author, class_name: 'User'
   validates :author, presence: true
 

@@ -7,6 +7,7 @@ FactoryGirl.define do
     start { Date.current }
     finish { Date.current }
     subtype { Event.subtype.values.sample }
+    category
     subject
     association :author, factory: :user
     association :owner, factory: :contact

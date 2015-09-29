@@ -13,7 +13,7 @@ describe Faq do
       must have_valid(:question).when('Скажите как его зовут')
       wont have_valid(:question).when(nil, '')
       must have_valid(:answer).when('Бу ра ти но')
-      wont have_valid(:answer).when(nil, '')
+      must have_valid(:answer).when(nil, '')
     end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927084336) do
+ActiveRecord::Schema.define(version: 20150929185329) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 20150927084336) do
   end
 
   add_index "answers", ["questionnaire_id"], name: "index_answers_on_questionnaire_id"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "subtype"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name",         null: false
@@ -93,6 +100,7 @@ ActiveRecord::Schema.define(version: 20150927084336) do
     t.datetime "updated_at",  null: false
     t.text     "excercise"
     t.text     "resolution"
+    t.integer  "category_id"
   end
 
   add_index "events", ["author_id"], name: "index_events_on_author_id"

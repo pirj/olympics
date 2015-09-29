@@ -28,6 +28,7 @@ ru:
       contacts_event: Контакт
       faq: Частые Вопросы
       registration: Заявка на регистрацию
+      category: Категория
 
     attributes:
       questionnaire:
@@ -56,6 +57,7 @@ ru:
         finish: Дата окончания
         owner: Ответственное лицо
         subject: Предмет
+        category: Категория
         external: Внешнее
         aasm_state: Состояние
         excercise: Задания и ответы
@@ -155,6 +157,7 @@ ru:
   questionnaires: Анкетирование
   qna: Вопросы и ответы
   contacts: Контакты
+  categories: Категории
   admin_login: Вход в личный кабинет
   site_search: Поиск по сайту
   find: Найти
