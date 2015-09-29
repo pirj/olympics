@@ -10,11 +10,11 @@ class EventsController < ApplicationController
     params[:year] ||= Time.current.year
     render :index, locals: {
       filters: filters,
-      events: apply_scopes(Event).all.decorate
+      events: apply_scopes(Event).published.decorate
     }
   end
 
   def show
-    render :show, locals: { event: Event.find(params[:id]).decorate }
+    render :show, locals: { event: Event.published.find(params[:id]).decorate }
   end
 end
