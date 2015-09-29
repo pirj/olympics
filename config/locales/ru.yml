@@ -10,7 +10,6 @@ ru:
   time:
     <<: *date_time_defaults
 
-
   activerecord:
     models:
       user: Пользователь
@@ -25,6 +24,8 @@ ru:
       contact: Контакт
       subject: Предмет
       event: Мероприятие
+      event_document: Документ
+      contacts_event: Контакт
       faq: Частые Вопросы
       registration: Заявка на регистрацию
 
@@ -36,10 +37,14 @@ ru:
         username: Имя пользователя
         password: Пароль
         role: Роль
-      document:
+      document: &document_attributes
         attached_document: Прикреплённый файл
         attached_document_content_type: Формат
         attached_document_size: Размер, байт
+      event_document:
+        <<: *document_attributes
+      contacts_event:
+        contact: Контакт
       contact:
         phone: Телефон
         email: Электроннй адрес
@@ -116,11 +121,13 @@ ru:
         archived: В архиве
 
   active_admin:
+    dashboard: Личный кабинет
     defaults: &active_admin_actions_defaults
       labels:
         publish: Опубликовать
         unpublish: Снять с публикации
         archive: Перенести в архив
+        submit: Блах
     batch_actions:
       <<: *active_admin_actions_defaults
     actions:
@@ -129,6 +136,16 @@ ru:
       predicates:
         in: одно из
         eq: соответствует
+
+  formtastic:
+    actions:
+      register: Отправить заявку
+    yes: Да
+    no: Нет
+    create: 'Создать %{model}'
+    update: 'Обновить %{model}'
+    submit: 'Сохранить %{model}'
+    required: обязательно к заполнению
 
   events: Мероприятия
   news: Новости
@@ -149,7 +166,3 @@ ru:
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': XLSX
   interferences: Пересекающиеся мероприятия и события
   registration_created: Заявка на регистрацию принята
-
-  formtastic:
-    actions:
-      register: Отправить заявку
