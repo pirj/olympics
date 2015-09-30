@@ -7,7 +7,8 @@ class EventDocument < ActiveRecord::Base
   validates :title, presence: true
 
   belongs_to :event
-  validates :event, presence: true
+  # FIXME: use index instead, this suck
+  validates :event, presence: true, unless: :new_record?
 
   attachment :attached_document, type: :document
   validates :attached_document, presence: true
