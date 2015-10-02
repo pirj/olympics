@@ -6,15 +6,15 @@ describe Category do
 
     it 'must have fields and associations' do
       must have_db_column :title
-      must have_db_column :subtype
+      must have_db_column :department
     end
 
     it 'validates attributes' do
       must have_valid(:title).when('asd  asd asd ')
       wont have_valid(:title).when(nil, '')
-      must have_valid(:subtype).when(:federal, :regional, :rsosh, :science)
-      wont have_valid(:subtype).when(nil, '', :lol)
-      must validate_inclusion_of(:subtype).in_array %w(federal regional rsosh science)
+      must have_valid(:department).when(:ko, :knvsh, :tso, :none)
+      wont have_valid(:department).when(nil, '', :lol)
+      must validate_inclusion_of(:department).in_array %w(ko knvsh tso none)
     end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929185329) do
+ActiveRecord::Schema.define(version: 20150930183600) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 20150929185329) do
   add_index "answers", ["questionnaire_id"], name: "index_answers_on_questionnaire_id"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "subtype"
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "department"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -60,18 +60,6 @@ ActiveRecord::Schema.define(version: 20150929185329) do
 
   add_index "contacts_events", ["contact_id"], name: "index_contacts_events_on_contact_id"
   add_index "contacts_events", ["event_id"], name: "index_contacts_events_on_event_id"
-
-  create_table "documents", force: :cascade do |t|
-    t.string   "title"
-    t.text     "text"
-    t.string   "subtype"
-    t.string   "attached_document_filename"
-    t.string   "attached_document_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "attached_document_size"
-    t.string   "attached_document_content_type"
-  end
 
   create_table "event_documents", force: :cascade do |t|
     t.string   "title"
@@ -141,7 +129,7 @@ ActiveRecord::Schema.define(version: 20150929185329) do
     t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "subtype"
+    t.string   "department"
   end
 
   create_table "news_images", force: :cascade do |t|
@@ -171,6 +159,7 @@ ActiveRecord::Schema.define(version: 20150929185329) do
     t.string   "title",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "department"
   end
 
   create_table "users", force: :cascade do |t|
@@ -181,6 +170,7 @@ ActiveRecord::Schema.define(version: 20150929185329) do
     t.datetime "updated_at",                      null: false
     t.string   "role"
     t.integer  "contacts_id"
+    t.string   "department"
   end
 
   add_index "users", ["contacts_id"], name: "index_users_on_contacts_id"

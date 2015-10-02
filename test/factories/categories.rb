@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :category do
     title { FFaker::Lorem.phrase }
-    subtype { Category.subtype.values.sample }
+    department { Category.department.values.sample }
   end
 end

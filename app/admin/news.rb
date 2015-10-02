@@ -1,17 +1,19 @@
 ActiveAdmin.register News do
-  permit_params :title, :text, :subtype,
+  permit_params :title, :text, :department,
     images_attributes: [:id, :image, :_destroy]
 
   index do
     selectable_column
     column :title
-    column :subtype
+    column :department do |item|
+      item.department.text
+    end
     column :created_at
     actions
   end
 
   filter :title
-  filter :subtype
+  filter :department
   filter :created_at
 
   form do |item|
@@ -19,7 +21,7 @@ ActiveAdmin.register News do
     item.semantic_errors *item.object.errors.keys
     item.inputs do
       item.input :title
-      item.input :subtype
+      item.input :department
       item.input :text
     end
     item.inputs do
@@ -33,7 +35,10 @@ ActiveAdmin.register News do
   show do
     attributes_table do
       row :title
-      row :subtype
+      row :department
+      row :department do |item|
+        item.department.text
+      end
       row :text
       row :created_at
       row :updated_at

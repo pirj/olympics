@@ -4,10 +4,14 @@ ActiveAdmin.register Subject do
   index do
     selectable_column
     column :title
+    column :department do |subject|
+      subject.department.text
+    end
     actions
   end
 
   filter :title
+  filter :department
   filter :created_at
 
   form do |subject|
@@ -15,6 +19,7 @@ ActiveAdmin.register Subject do
     subject.semantic_errors *subject.object.errors.keys
     subject.inputs do
       subject.input :title
+      subject.input :department
     end
     subject.actions
   end
@@ -22,6 +27,9 @@ ActiveAdmin.register Subject do
   show do
     attributes_table do
       row :title
+      row :department do |subject|
+        subject.department.text
+      end
       row :created_at
       row :updated_at
     end

@@ -1,10 +1,10 @@
 class Category < ActiveRecord::Base
   extend Enumerize
-  include Subtypes
+  include Departments
 
   validates :title, presence: true
 
   # TODO: add index
-  enumerize :subtype, in: SUBTYPES
-  validates :subtype, presence: true, inclusion: SUBTYPES
+  enumerize :department, in: DEPARTMENTS, default: :none
+  validates :department, presence: true, inclusion: DEPARTMENTS
 end

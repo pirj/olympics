@@ -6,6 +6,9 @@ ActiveAdmin.register User do
     # id_column
     column :email
     column :username
+    column :department do |user|
+      user.department.text
+    end
     column :role do |user|
       user.role.text
     end
@@ -17,6 +20,7 @@ ActiveAdmin.register User do
 
   filter :email
   filter :username
+  filter :department
   filter :role
   filter :current_sign_in_at
   filter :sign_in_count
@@ -27,6 +31,7 @@ ActiveAdmin.register User do
       f.input :email
       f.input :username
       f.input :password
+      f.input :department
       f.input :role
     end
     f.actions
@@ -36,6 +41,9 @@ ActiveAdmin.register User do
     attributes_table do
       row :email
       row :username
+      row :department do |user|
+        user.department.text
+      end
       row :role do |user|
         user.role.text
       end

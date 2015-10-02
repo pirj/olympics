@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe Document do
+describe EventDocument do
   describe 'basic' do
     subject { build :event_document }
 

@@ -85,6 +85,7 @@ ru:
     text: Текст
     description: Описание
     subtype: Тип
+    department: Ведомство
     author: Автор
     email: Адрес электронной почты
     name: ФИО
@@ -94,16 +95,15 @@ ru:
   enumerize:
     user:
       role:
-        sys_admin: Системный администратор
-        ko_admin: Администрация КО
-        ko_user: Пользователь КО
-        knvsh_admin: Администрация КНВШ
-        knvsh_user: Пользователь КНВШ
-        tso_admin: Администрация ЦО
-        tso_user: Пользователь ЦО
-        external_user: Пользователь внешней организации
-        none: '-'
+        super_admin: Системный администратор
+        admin: Администратор
+        none: Пользователь
     defaults:
+      department:
+        ko: КО
+        knvsh: КНВШ
+        tso: ЦО
+        none: '-'
       subtype:
         federal: Всероссийские олимпиады
         regional: Региональные олимпиады

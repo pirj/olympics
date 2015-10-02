@@ -12,4 +12,7 @@ class EventDocument < ActiveRecord::Base
 
   attachment :attached_document, type: :document
   validates :attached_document, presence: true
+
+  scope :by_subtypes, -> subtypes { where(event: { subtype: subtypes } ) }
+  scope :by_name, -> name { where('title LIKE ? or text LIKE ?', *(["%#{name}%"]*2)) }
 end

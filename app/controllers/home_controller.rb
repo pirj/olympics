@@ -11,7 +11,7 @@ class HomeController < ApplicationController
     render :index, locals: {
       filters: filters,
       events: apply_scopes(Event).published.limit(8),
-      docs: Document.limit(5),
+      docs: EventDocument.limit(5),
       news: News.actual(3),
       questionnaires: [],
       links: Link.all
