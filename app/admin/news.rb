@@ -16,6 +16,10 @@ ActiveAdmin.register News do
   filter :department
   filter :created_at
 
+  before_save do |item|
+    item.author = current_user
+  end
+
   form do |item|
     item.semantic_errors
     item.semantic_errors *item.object.errors.keys
