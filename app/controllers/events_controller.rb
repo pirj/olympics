@@ -2,8 +2,8 @@ class EventsController < ApplicationController
   include DocumentsHelper
 
   has_scope :year
-  has_scope :by_subtypes, as: :subtypes
-  has_scope :by_subjects, as: :subjects
+  has_scope :by_subtypes, as: :subtypes, type: :array
+  has_scope :by_subjects, as: :subjects, type: :array
 
   def index
     filters = { subtypes: {}, subjects: {} }.with_indifferent_access.merge params.permit(:year, subjects: [], subtypes: [])

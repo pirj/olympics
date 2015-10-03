@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  has_scope :by_subtypes, as: :subtypes
+  has_scope :by_subtypes, as: :subtypes, type: :array
   has_scope :by_name, as: :name
 
   def index

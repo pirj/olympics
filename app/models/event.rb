@@ -62,6 +62,6 @@ class Event < ActiveRecord::Base
   scope :month, -> month { where "strftime('%m', start) = ?", month.to_s.rjust(2, '0') } unless Rails.env.production?
   scope :text, -> text { where('title LIKE ? or description LIKE ?', *(["%#{text}%"]*2)) }
 
-  scope :by_subtypes, -> subtypes { where(subtype: subtypes) }
-  scope :by_subjects, -> subjects { where(subject: subjects) }
+  scope :by_subtypes, -> subtypes { where subtype: subtypes }
+  scope :by_subjects, -> subjects { joins(:subject).where(subjects: { title: subjects }) }
 end
