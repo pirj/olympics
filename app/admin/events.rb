@@ -1,8 +1,8 @@
 ActiveAdmin.register Event do
   permit_params :title, :description, :subtype, :external, :excercise, :resolution, :subject_id, :start, :finish, :category_id,
-    info_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
-    excercise_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
-    resolution_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
+    info_documents_attributes: [:id, :attached_document, :section, :title, :text, :_destroy],
+    excercise_documents_attributes: [:id, :attached_document, :section, :title, :text, :_destroy],
+    resolution_documents_attributes: [:id, :attached_document, :section, :title, :text, :_destroy],
     contacts_attributes: [:id, :name, :phone, :additional_phone, :email, :organization, :position, :image, :_destroy]
 
   # permit_params do
@@ -68,6 +68,7 @@ ActiveAdmin.register Event do
           event.has_many :info_documents, allow_destroy: true, new_record: true do |document|
             document.input :section, as: :hidden
             document.input :title
+            document.input :text
             document.input :attached_document, as: :refile
           end
         end
@@ -95,6 +96,7 @@ ActiveAdmin.register Event do
           event.has_many :excercise_documents, allow_destroy: true, new_record: true do |document|
             document.input :section, as: :hidden
             document.input :title
+            document.input :text
             document.input :attached_document, as: :refile
           end
         end
@@ -107,6 +109,7 @@ ActiveAdmin.register Event do
           event.has_many :resolution_documents, allow_destroy: true, new_record: true do |document|
             document.input :section, as: :hidden
             document.input :title
+            document.input :text
             document.input :attached_document, as: :refile
           end
         end
@@ -140,7 +143,10 @@ ActiveAdmin.register Event do
           panel t(:documents) do
             event.info_documents.map do |document|
               div do
-                link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
+                span do
+                  link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
+                end
+                span document.text
               end
             end
           end
@@ -152,7 +158,10 @@ ActiveAdmin.register Event do
           panel t(:documents) do
             event.excercise_documents.map do |document|
               div do
-                link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
+                span do
+                  link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
+                end
+                span document.text
               end
             end
           end
@@ -164,7 +173,10 @@ ActiveAdmin.register Event do
           panel t(:documents) do
             event.resolution_documents.map do |document|
               div do
-                link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
+                span do
+                  link_to document.title, attachment_url(document, :attached_document, filename: document.attached_document_filename)
+                end
+                span document.text
               end
             end
           end
