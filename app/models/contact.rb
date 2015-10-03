@@ -1,4 +1,6 @@
 class Contact < ActiveRecord::Base
+  belongs_to :event
+
   attachment :image, type: :image
 
   validates :name, presence: true
@@ -7,10 +9,6 @@ class Contact < ActiveRecord::Base
   validates_email_format_of :email
   validates :organization, presence: true
   validates :position, presence: true
-
-  has_many :in_charge, class_name: 'Event'
-
-  has_one :user
 
   scope :by_text, -> text { where('name LIKE ? or organization LIKE ? or position LIKE ?', *(["%#{text}%"]*3)) }
 end

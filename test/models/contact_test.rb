@@ -5,11 +5,14 @@ describe Contact do
     subject { build :contact }
 
     it 'must have fields and associations' do
+      must belong_to :event
       must have_db_column :name
       must have_db_column :phone
+      must have_db_column :additional_phone
       must have_db_column :email
       must have_db_column :organization
       must have_db_column :position
+      must have_db_column :image_id
     end
 
     it 'validates attributes' do
@@ -17,6 +20,7 @@ describe Contact do
       wont have_valid(:name).when(nil, '')
       must have_valid(:phone).when('+7-911-112-33-44')
       wont have_valid(:phone).when('', nil)
+      must have_valid(:additional_phone).when('+7-911-112-33-44')
       must have_valid(:email).when('vip@mail.ru')
       wont have_valid(:email).when('', 'нет', nil)
       must have_valid(:organization).when('Школа №1')

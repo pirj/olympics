@@ -1,9 +1,9 @@
 ActiveAdmin.register Event do
-  permit_params :title, :description, :subtype, :external, :excercise, :resolution, :subject_id, :start, :finish, :owner_id, :category_id,
+  permit_params :title, :description, :subtype, :external, :excercise, :resolution, :subject_id, :start, :finish, :category_id,
     info_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
     excercise_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
     resolution_documents_attributes: [:id, :attached_document, :section, :title, :_destroy],
-    contacts_events_attributes: [:id, :contact_id, :_destroy]
+    contacts_attributes: [:id, :name, :phone, :additional_phone, :email, :organization, :position, :image, :_destroy]
 
   # permit_params do
   #   params = [:title, :content, :publisher_id]
@@ -14,20 +14,19 @@ ActiveAdmin.register Event do
   index do
     selectable_column
     column :title
-    column :subtype do |document|
-      document.subtype.text
+    column :subtype do |event|
+      event.subtype.text
     end
     column :external
     column :subject
-    column :category do |document|
-      document.decorate.category_title
+    column :category do |event|
+      event.decorate.category_title
     end
-    column :aasm_state do |document|
-      t(document.aasm_state, scope: 'aasm.event.state')
+    column :aasm_state do |event|
+      t(event.aasm_state, scope: 'aasm.event.state')
     end
     column :start
     column :finish
-    column :owner
     actions defaults: false do |event|
       span item t('active_admin.view'), resource_path(event)
       span item t('active_admin.edit'), edit_resource_path(event)
@@ -44,7 +43,6 @@ ActiveAdmin.register Event do
   filter :start
   filter :finish
   filter :author
-  filter :owner
   filter :created_at
 
   before_save do |event|
@@ -63,7 +61,6 @@ ActiveAdmin.register Event do
           event.input :category
           event.input :external
           event.input :subject
-          event.input :owner
           event.input :start, as: :datepicker, datepicker_options: { min_date: Date.current }
           event.input :finish, as: :datepicker, datepicker_options: { min_date: Date.current }
         end
@@ -75,8 +72,18 @@ ActiveAdmin.register Event do
           end
         end
         event.inputs do
-          event.has_many :contacts_events, allow_destroy: true, new_record: true do |contact|
-            contact.input :contact
+          event.has_many :contacts, allow_destroy: true, new_record: true do |contact|
+            contact.semantic_errors
+            contact.semantic_errors *contact.object.errors.keys
+            contact.inputs do
+              contact.input :name
+              contact.input :phone
+              contact.input :email
+              contact.input :organization
+              contact.input :position
+              contact.input :image, as: :refile
+            end
+            contact.actions
           end
         end
       end
@@ -113,17 +120,16 @@ ActiveAdmin.register Event do
       tab t(:info, scope: 'enumerize.event_document.section') do
         attributes_table do
           row :title
-          row :subtype do |document|
-            document.subtype.text
+          row :subtype do |event|
+            event.subtype.text
           end
           row :external
           row :subject
-          row :category do |document|
-            document.decorate.category_title
+          row :category do |event|
+            event.decorate.category_title
           end
-          row :owner
-          row :aasm_state do |document|
-            t(document.aasm_state, scope: 'aasm.event.state')
+          row :aasm_state do |event|
+            t(event.aasm_state, scope: 'aasm.event.state')
           end
           row :description
           row :start
@@ -184,7 +190,13 @@ ActiveAdmin.register Event do
   sidebar I18n.t(:contacts), only: :show do
     event.contacts.map do |contact|
       div do
-        link_to contact.name, admin_contact_path(contact)
+        image_tag attachment_url(contact, :image, :fit, 70, 70)
+        contact.name
+        contact.phone
+        contact.additional_phone
+        contact.email
+        contact.organization
+        contact.position
       end
     end
   end

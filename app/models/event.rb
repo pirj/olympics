@@ -19,14 +19,10 @@ class Event < ActiveRecord::Base
   belongs_to :author, class_name: 'User'
   validates :author, presence: true
 
-  belongs_to :owner, class_name: 'Contact'
-  validates :owner, presence: true
-
   belongs_to :subject
 
-  has_many :contacts_events
-  accepts_nested_attributes_for :contacts_events, allow_destroy: true
-  has_many :contacts, through: :contacts_events
+  has_many :contacts
+  accepts_nested_attributes_for :contacts, allow_destroy: true
 
   has_many :info_documents, -> { where section: :info }, class_name: 'EventDocument'
   accepts_nested_attributes_for :info_documents, allow_destroy: true

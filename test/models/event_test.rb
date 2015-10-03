@@ -6,10 +6,9 @@ describe Event do
 
     it 'must have fields and associations' do
       must belong_to(:author).class_name 'User'
-      must belong_to(:owner).class_name 'Contact'
       must belong_to(:subject)
       must belong_to(:category)
-      must have_many(:contacts).through :contacts_events
+      must have_many(:contacts)
       must have_many(:info_documents).class_name 'EventDocument'
       must have_many(:excercise_documents).class_name 'EventDocument'
       must have_many(:resolution_documents).class_name 'EventDocument'
@@ -21,7 +20,6 @@ describe Event do
       must have_db_column :finish
       must have_db_column :subtype
       must have_db_column :author_id
-      must have_db_column :owner_id
       must have_db_column :external
       must have_db_column :aasm_state
     end

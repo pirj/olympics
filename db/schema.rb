@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930183600) do
+ActiveRecord::Schema.define(version: 20151002190357) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -43,23 +43,19 @@ ActiveRecord::Schema.define(version: 20150930183600) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "name",         null: false
-    t.string   "phone",        null: false
-    t.string   "email",        null: false
-    t.string   "organization", null: false
-    t.string   "position",     null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "name",             null: false
+    t.string   "phone",            null: false
+    t.string   "additional_phone", null: false
+    t.string   "email",            null: false
+    t.string   "organization",     null: false
+    t.string   "position",         null: false
     t.string   "image_id"
+    t.integer  "event_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  create_table "contacts_events", force: :cascade do |t|
-    t.integer "contact_id"
-    t.integer "event_id"
-  end
-
-  add_index "contacts_events", ["contact_id"], name: "index_contacts_events_on_contact_id"
-  add_index "contacts_events", ["event_id"], name: "index_contacts_events_on_event_id"
+  add_index "contacts", ["event_id"], name: "index_contacts_on_event_id"
 
   create_table "event_documents", force: :cascade do |t|
     t.string   "title"
@@ -80,7 +76,6 @@ ActiveRecord::Schema.define(version: 20150930183600) do
     t.date     "finish",      null: false
     t.string   "subtype",     null: false
     t.integer  "author_id"
-    t.integer  "owner_id"
     t.integer  "subject_id"
     t.boolean  "external",    null: false
     t.string   "aasm_state",  null: false
@@ -92,7 +87,6 @@ ActiveRecord::Schema.define(version: 20150930183600) do
   end
 
   add_index "events", ["author_id"], name: "index_events_on_author_id"
-  add_index "events", ["owner_id"], name: "index_events_on_owner_id"
   add_index "events", ["subject_id"], name: "index_events_on_subject_id"
 
   create_table "faqs", force: :cascade do |t|

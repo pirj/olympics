@@ -55,7 +55,6 @@ ru:
         title: Название
         start: Дата начала
         finish: Дата окончания
-        owner: Ответственное лицо
         subject: Предмет
         category: Категория
         external: Внешнее
