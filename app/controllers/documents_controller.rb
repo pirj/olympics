@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
   def index
     filters = { subtypes: [] }.with_indifferent_access.merge params.permit(:name, :subtypes)
     render :index, locals: {
-      documents: apply_scopes(EventDocument).all,
+      documents: apply_scopes(Document).all,
       filters: filters
     }
   end

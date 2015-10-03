@@ -57,6 +57,18 @@ ActiveRecord::Schema.define(version: 20151003095127) do
 
   add_index "contacts", ["event_id"], name: "index_contacts_on_event_id"
 
+  create_table "documents", force: :cascade do |t|
+    t.string   "title"
+    t.text     "text"
+    t.string   "subtype"
+    t.string   "attached_document_filename"
+    t.string   "attached_document_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "attached_document_size"
+    t.string   "attached_document_content_type"
+  end
+
   create_table "event_documents", force: :cascade do |t|
     t.string   "title"
     t.integer  "event_id"

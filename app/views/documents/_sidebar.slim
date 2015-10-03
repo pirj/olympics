@@ -1,7 +1,7 @@
 .quest_filter
   p.filter_name Олимпиады
   form
-    - Event.subtype.values.each do |subtype|
+    - Document.subtype.values.each do |subtype|
       p
         input.checkbox name="subtypes" type="checkbox" id=subtype.to_s checked=filters[:subtypes].include?(subtype)
         label for="checkbox" id=subtype.to_s =subtype.text

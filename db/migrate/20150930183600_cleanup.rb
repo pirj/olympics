@@ -10,7 +10,5 @@ class Cleanup < ActiveRecord::Migration
     add_column :news, :department, :string
 
     add_column :subjects, :department, :string
-
-    drop_table :documents
   end
 end
