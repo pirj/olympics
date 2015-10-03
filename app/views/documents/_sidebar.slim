@@ -1,10 +1,12 @@
-.quest_filter
-  p.filter_name Олимпиады
-  form
-    - Document.subtype.values.each do |subtype|
-      p
-        input.checkbox name="subtypes" type="checkbox" id=subtype.to_s checked=filters[:subtypes].include?(subtype)
-        label for="checkbox" id=subtype.to_s =subtype.text
+= form_tag "", method: :get do
 
-    p
-      input.button type="submit" value="Сбросить значения фильтра"
+  p.filter_name
+    | Олимпиады
+    - Event.subtype.values.each do |subtype|
+      p
+        = check_box_tag "subtypes[]", subtype, filters[:subtypes].include?(subtype), id: subtype, class: 'checkbox'
+        label for=subtype
+          = subtype.text
+  p
+    = link_to events_path, class: 'button' do
+      | Сбросить значения фильтра
