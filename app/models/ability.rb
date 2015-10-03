@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    self.send(user.role)
+    self.send(user.role, user.department)
   end
 
 # 1. Пользователи роли «Системный администратор» получают доступ на выполнение
@@ -37,33 +37,20 @@ class Ability
 
 protected
   # TODO: refactor to classes (with canard gem?)
-  def sys_admin
+  def super_admin _
+    puts "superadmin"
     can :manage, :all
   end
 
-  def ko_admin
+  def admin department
+    puts "admin"
+
   end
 
-  def knvsh_admin
-  end
-
-  def tso_admin
-  end
-
-  def ko_user
-  end
-
-  def knvsh_user
-  end
-
-  def tso_user
-  end
-
-  def external_user
-    can :read, :all
-  end
-
-  def none
-    can :read, :News
+  def none department
+    puts "none", department
+    if department.none?
+      can :read, :all
+    end
   end
 end
