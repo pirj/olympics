@@ -1,6 +1,12 @@
 ActiveAdmin.register Subject do
   permit_params :title
 
+  controller do
+    def find_resource
+      scoped_collection.friendly.find_by_friendly_id(params[:id])
+    end
+  end
+
   index do
     selectable_column
     column :title
