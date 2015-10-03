@@ -1,4 +1,4 @@
 =form_tag("", class: "search") do
-  =text_field_tag "text", filter[:text], class: "input", placeholder: "Поиск по контактам", type: "search"
+  =text_field_tag "text", filters[:text], class: "input", placeholder: "Поиск по контактам", type: "search"
   =submit_tag "", class: "submit", type: "submit"
   =button_tag "Найти"

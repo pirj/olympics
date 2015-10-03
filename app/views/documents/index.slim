@@ -8,7 +8,7 @@
   h1.documents Документы
 
   .documents_search
-    = render partial: 'documents/search', locals: { filter: filter }
+    = render partial: 'documents/search', locals: { filters: filters }
 
   .top_content
     .documents
@@ -25,4 +25,4 @@
           span=document.text
 
   .right_sidebar
-    /* = render partial: 'documents/sidebar', locals: { filter: filter } */
+    /* = render partial: 'documents/sidebar', locals: { filters: filters } */

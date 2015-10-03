@@ -8,25 +8,14 @@
   h1.documents Контакты
 
   .documents_search
-    = render partial: 'contacts/search', locals: { filter: filter }
+    = render partial: 'contacts/search', locals: { filters: filters }
 
   .top_content
     .contacts
-      - contacts.each do |contact|
-
-        .contacts_teacher
-          .contacts_teacher_img
-            = image_tag attachment_url(contact, :image, :fit, 70, 70)
-          .contacts_teacher_info
-            p.contacts_teacher_name = contact.name
-            p.contacts_teacher_work
-              = contact.organization
-              br
-              = contact.position
-          p.contacts_teacher_fone
-            = contact.phone
-            br
-            = contact.email
+      - contacts_by_subtype.each do |subtype, contacts|
+        h3 = subtype.text
+        = render partial: 'contacts/list', locals: { contacts: contacts }
 
   .right_sidebar
-    /* = render partial: 'documents/sidebar', locals: { filter: filter } */
+    .quest_filter
+      = render partial: 'events/filters', locals: { filters: filters }

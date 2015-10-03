@@ -3,7 +3,7 @@
   form
     - Event.subtype.values.each do |subtype|
       p
-        input.checkbox name="subtypes" type="checkbox" id=subtype.to_s checked=filter[:subtypes].include?(subtype)
+        input.checkbox name="subtypes" type="checkbox" id=subtype.to_s checked=filters[:subtypes].include?(subtype)
         label for="checkbox" id=subtype.to_s =subtype.text
 
     p

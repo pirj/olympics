@@ -11,4 +11,7 @@ class Contact < ActiveRecord::Base
   validates :position, presence: true
 
   scope :by_text, -> text { where('name LIKE ? or organization LIKE ? or position LIKE ?', *(["%#{text}%"]*3)) }
+
+  scope :by_subtypes, -> subtypes { joins(:event).where(events: { subtype: subtypes } ) }
+  scope :by_subjects, -> subjects { joins(event: :subject).where( subjects: { title: subjects } ) }
 end
