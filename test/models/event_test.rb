@@ -37,6 +37,8 @@ describe Event do
       wont have_valid(:subtype).when(nil, '', :lol)
       must validate_inclusion_of(:subtype).in_array %w(federal regional rsosh science)
       must validate_inclusion_of(:aasm_state).in_array %w(draft published archived)
+      must have_valid(:category_id).when(1)
+      # FIXME wont have_valid(:category_id).when(nil, '')
     end
   end
 

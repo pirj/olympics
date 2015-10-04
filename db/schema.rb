@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003095127) do
+ActiveRecord::Schema.define(version: 20151004141128) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -63,10 +63,10 @@ ActiveRecord::Schema.define(version: 20151003095127) do
     t.string   "subtype"
     t.string   "attached_document_filename"
     t.string   "attached_document_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
     t.integer  "attached_document_size"
     t.string   "attached_document_content_type"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "event_documents", force: :cascade do |t|
@@ -134,9 +134,9 @@ ActiveRecord::Schema.define(version: 20151003095127) do
     t.integer  "author_id"
     t.string   "title"
     t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "department"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "category_id"
   end
 
   create_table "news_images", force: :cascade do |t|

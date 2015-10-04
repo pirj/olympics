@@ -5,9 +5,8 @@ class News < ActiveRecord::Base
   belongs_to :author, class_name: 'User'
   validates :author, presence: true
 
-  # TODO: add index
-  enumerize :department, in: DEPARTMENTS, default: :none
-  validates :department, presence: true, inclusion: DEPARTMENTS
+  belongs_to :category
+  validates :category, presence: true
 
   validates :title, :text, presence: true
 

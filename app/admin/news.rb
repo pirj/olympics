@@ -1,19 +1,19 @@
 ActiveAdmin.register News do
-  permit_params :title, :text, :department,
+  permit_params :title, :text, :category_id,
     images_attributes: [:id, :image, :_destroy]
 
   index do
     selectable_column
     column :title
-    column :department do |item|
-      item.department.text
+    column :category do |item|
+      item.category.title
     end
     column :created_at
     actions
   end
 
   filter :title
-  filter :department
+  filter :category, as: :select
   filter :created_at
 
   before_save do |item|
@@ -25,7 +25,7 @@ ActiveAdmin.register News do
     item.semantic_errors *item.object.errors.keys
     item.inputs do
       item.input :title
-      item.input :department
+      item.input :category
       item.input :text
     end
     item.inputs do
@@ -39,9 +39,8 @@ ActiveAdmin.register News do
   show do
     attributes_table do
       row :title
-      row :department
-      row :department do |item|
-        item.department.text
+      row :category do |item|
+        item.category.title
       end
       row :text
       row :created_at
