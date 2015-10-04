@@ -1,7 +1,7 @@
 .container
   .breadcrumbs
     a href="/" Главная
-    | /
+    | /&nbsp;
     = link_to events_path do
       | Мероприятия
     | /
@@ -19,14 +19,11 @@
         | ,&nbsp;
         = event.subject.title
 
-      #tab_block.switching_tabs.cont
-        ul#tabs
-          li.tab
-            a.tabulous_active href="#tab1" Информация
-            li.tab
-              a href="#tab2" Задания и ответ
-            li.tab
-              a href="#tab3" События и итоги
+      #tab_block
+        ul#tabs.cont
+          li.tab.active href="#tab1" Информация
+          li.tab href="#tab2" Задания и ответ
+          li.tab href="#tab3" События и итоги
 
         #tabs_content
           #tab1.tab_content.active
