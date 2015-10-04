@@ -21,7 +21,7 @@
               | #{Time.current.year.next} год
 
     .calendar_search
-      =form_tag home_index_path(filters), method: :get do
+      =form_tag home_index_path(filters), method: :get, class: 'search' do
         input.input name="text" placeholder="Поиск по сайту" type="search"
         input.submit name="" type="submit" value=""
         button Найти

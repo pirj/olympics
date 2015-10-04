@@ -23,3 +23,7 @@
   max-width: 70px;
   max-height: 70px;
 }
+
+.calendar_search form.search input.input {
+  margin-top: 22px;
+}
