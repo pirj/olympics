@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   extend Enumerize
   include Subtypes
   include AASM
+  include CaseSensivity
 
   validates :title, presence: true
   validates :description, presence: true
@@ -60,7 +61,7 @@ class Event < ActiveRecord::Base
   scope :year, -> year { where 'start >= ? AND finish <= ?', Time.new(year), Time.new(year).end_of_year }
   scope :month, -> month { where "EXTRACT(MONTH FROM start) = ?", month } if Rails.env.production?
   scope :month, -> month { where "strftime('%m', start) = ?", month.to_s.rjust(2, '0') } unless Rails.env.production?
-  scope :text, -> text { where('title LIKE ? or description LIKE ?', *(["%#{text}%"]*2)) }
+  scope :text, -> text { where("title #{LIKE} ? or description #{LIKE} ?", *(["%#{text}%"]*2)) }
 
   scope :by_subtypes, -> subtypes { where subtype: subtypes }
   scope :by_subjects, -> subjects { joins(:subject).where(subjects: { title: subjects }) }
