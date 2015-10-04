@@ -1,5 +1,5 @@
 p
-  =link_to news_path(item), html: { class: 'title' }
+  =link_to news_path(item), class: 'title'
     =item.title
 span=item.department.text
 span.date=l item.created_at, format: :short

@@ -1,11 +1,25 @@
 /*
  *= require formtastic
  *= require flickerplate
- *= require_self
  *= require_tree ./lib
  *= require_tree ./application
+ *= require_self
  */
 
 .flickerplate ul.flicks>li .flick-title, .flickerplate ul.flicks>li .flick-sub-text {
   text-align: left;
+}
+
+#tabs li {
+  margin: 0 10px 0 0;
+}
+
+#tabs li a {
+  margin: 0;
+  padding: 0;
+}
+
+.contacts_teacher_img img {
+  max-width: 70px;
+  max-height: 70px;
 }
