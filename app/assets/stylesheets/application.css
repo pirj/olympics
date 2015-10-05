@@ -27,3 +27,8 @@
 .calendar_search form.search input.input {
   margin-top: 22px;
 }
+
+
+.menu ul li a.active {
+  border-bottom: 4px solid #e8565e;
+}

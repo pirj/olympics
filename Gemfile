@@ -36,6 +36,7 @@ gem 'turbolinks'
 
 gem 'slim-rails'
 gem 'formtastic'
+gem 'active_link_to'
 
 gem 'has_scope'
 gem 'draper'

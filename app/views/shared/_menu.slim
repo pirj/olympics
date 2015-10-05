@@ -7,19 +7,19 @@
 
     nav.menu
       ul
-        li class="#{'active' if controller?('events')}"
-          = link_to t(:events), events_path
-        li class="#{'active' if controller?('news')}"
-          = link_to t(:news), news_index_path
-        li class="#{'active' if controller?('documents')}"
-          = link_to t(:documents), documents_path
-        li class="#{'active' if controller?('links')}"
-          = link_to t(:links), links_path
         li
-          = link_to t(:questionnaires), home_index_path
-        li class="#{'active' if controller?('faq')}"
-          = link_to t(:qna), faq_index_path
-        li class="#{'active' if controller?('contacts')}"
-          = link_to t(:contacts), contacts_path
+          = active_link_to t(:events), events_path
+        li
+          = active_link_to t(:news), news_index_path
+        li
+          = active_link_to t(:documents), documents_path
+        li
+          = active_link_to t(:links), links_path
+        li
+          = active_link_to t(:questionnaires), home_index_path
+        li
+          = active_link_to t(:qna), faq_index_path
+        li
+          = active_link_to t(:contacts), contacts_path
 
     a data-reveal-id="login-form" href="#" class="login" Войти
