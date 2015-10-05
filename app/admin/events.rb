@@ -74,17 +74,13 @@ ActiveAdmin.register Event do
         end
         event.inputs do
           event.has_many :contacts, allow_destroy: true, new_record: true do |contact|
-            contact.semantic_errors
-            contact.semantic_errors *contact.object.errors.keys
-            contact.inputs do
-              contact.input :name
-              contact.input :phone
-              contact.input :email
-              contact.input :organization
-              contact.input :position
-              contact.input :image, as: :refile
-            end
-            contact.actions
+            contact.input :name
+            contact.input :phone
+            contact.input :additional_phone
+            contact.input :email
+            contact.input :organization
+            contact.input :position
+            contact.input :image, as: :refile
           end
         end
       end
@@ -202,13 +198,13 @@ ActiveAdmin.register Event do
   sidebar I18n.t(:contacts), only: :show do
     event.contacts.map do |contact|
       div do
-        image_tag attachment_url(contact, :image, :fit, 70, 70)
-        contact.name
-        contact.phone
-        contact.additional_phone
-        contact.email
-        contact.organization
-        contact.position
+        span image_tag attachment_url(contact, :image, :fit, 70, 70)
+        span contact.name
+        span contact.phone
+        span contact.additional_phone
+        span contact.email
+        span contact.organization
+        span contact.position
       end
     end
   end
