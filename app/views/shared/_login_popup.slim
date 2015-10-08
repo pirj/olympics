@@ -2,15 +2,10 @@
   .login_pop
     .user_menu Войти на сайт
 
-    form method="post"
-      p
-        input name="login" placeholder="Логин" type="text"
-      p
-        input name="password" placeholder="Пароль" type="password"
-      /* p.remember_me */
-      /*   input#checkbox10.checkbox type="checkbox" */
-      /*   label for="checkbox10" Чужой компьютер */
-      div style="clear: both;"
+    = semantic_form_for(resource = User.new, url: user_session_path, html: { id: "session_new" }) do |f|
+      = f.inputs do
+        = f.input :username, label: false, placeholder: t('active_admin.devise.username.title'), input_html: { autofocus: true }
+        = f.input :password, label: false, placeholder: t('active_admin.devise.password.title')
       p.submit
         input name="commit" type="submit" value="Войти"
       p.regist
