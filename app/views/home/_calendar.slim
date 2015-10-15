@@ -52,26 +52,20 @@
                 span = event.longevity
 
   .categories
-    .category_one
+    .category_one.olimp1
       =link_to events_path(subtypes: [:rsosh])
-        .image
-          = image_tag 'category1.png'
-        | Олимпиада РСОШ
+        | Олимпиада
+        br
+        | РСОШ
 
-    .category_one
+    .category_one.olimp2
       =link_to events_path(subtypes: [:regional])
-        .image
-          = image_tag 'category2.png'
         | Региональная олимпиада
 
-    .category_one
+    .category_one.olimp3
       =link_to events_path(subtypes: [:federal])
-        .image
-          = image_tag 'category3.png'
         | Всероссийская олимпиада
 
-    .category_one
+    .category_one.olimp4
       =link_to events_path(subtypes: [:science])
-        .image
-          = image_tag 'category4.png'
         | Научная деятельность

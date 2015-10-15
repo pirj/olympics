@@ -125,7 +125,7 @@ footer{
 	text-decoration:none;
 	font-size: 13px;
 	line-height: 75px;
-	padding: 0 7px;
+	padding: 0 9px;
 }
 
 .menu ul li
@@ -378,52 +378,61 @@ border-color:#ffc534;
     margin-bottom: 20px;
     padding-bottom: 0;
     margin-bottom: 0;
-}
-.calendar_news span{
+  }
+  .calendar_news span{
     font-size: 11px;
     color: #6d6d6d;
     padding-left: 25px;
-}
-.calendar_news a{
+  }
+  .calendar_news a{
     color: #ffc534;
     font-size: 14px;
     padding-left: 25px;
-}
-.calendar_news a:hover{color:#0077cc;}
-.calendar_news .today{
+  }
+  .calendar_news a:hover{color:#0077cc;}
+  .calendar_news .today{
     color: #ffb807;
     font-size: 12px;
     background: image-url('today.png') no-repeat;
     padding-left: 25px;
-}
-.calendar_news .category{
+  }
+  .calendar_news .category{
     color: #0077cc;
     font-size: 14px;
     font-weight: bold;
-}
-.calendar_one_news{}
-.calendar_news .evry{
+  }
+  .calendar_one_news{}
+  .calendar_news .evry{
     color: #6d6d6d;
     font-size: 12px;
     background: image-url('evry.png') no-repeat;
     padding-left: 25px;
-}
-.category_one{
+  }
+  .category_one{
     width: 24%;
     float: left;
     text-align: center;
-}
-.categories{
-overflow: hidden;padding: 30px 0;border-bottom: 1px solid #EAEAEA;}
+    margin-right: 13px;
+  }
+  .categories{
+  overflow: hidden;padding: 20px 0 5px;border-bottom: 1px solid #EAEAEA;}
 
-.image {
+  .image {
     height: 85px;
-}
-.category_one a{
+  }
+  .category_one a{
     text-decoration: none;
-    border-bottom: 1px solid #dfdfdf;
-    font-size: 16px;
-    color: #676767;
+    border-bottom: 0;
+    font-size: 24px;
+    color: #FFFFFF;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    text-transform: uppercase;
+    right: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-shadow: 0px 0px 1px #000;
 }
 .image img{
     height: 65px;
@@ -1782,4 +1791,46 @@ width: 115px;}
 }
 .today h2{
     color: #e8565e;
+}
+header.home{
+
+    background: rgba(0, 119, 204, 0.7);
+
+    border: 0;
+}
+.home .menu ul a {
+    color: #FFF;
+   
+}
+
+.home  .login {
+  
+    background: image-url('login1.png') no-repeat 10% 40%;
+    color: #fff;
+    border: 1px solid #fff;
+}
+.home  .logo {
+    margin-top: 17px;
+}
+.olimp1{
+    background: image-url('olimp1.png');
+    height: 147px;
+    position: relative;
+    margin-left: 2px;
+}
+.olimp2{
+    background: image-url('olimp2.png');
+    height: 147px;
+    position: relative;
+}
+.olimp3{
+    background: image-url('olimp3.png');
+    height: 147px;
+    position: relative;
+}
+.olimp4{
+    background: image-url('olimp4.png');
+    height: 147px;
+    position: relative;
+    margin-right: 0;
 }
