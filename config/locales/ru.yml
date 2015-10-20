@@ -170,3 +170,4 @@ ru:
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': XLSX
   interferences: Пересекающиеся мероприятия и события
   registration_created: Заявка на регистрацию принята
+  none: '-'

@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     params[:text] ||= ''
     render :index, locals: {
       filters: filters,
-      events: apply_scopes(Event).published.limit(8),
+      events: apply_scopes(Event).published.limit(8).decorate,
       docs: Document.limit(5),
       news: News.actual(3),
       questionnaires: [],

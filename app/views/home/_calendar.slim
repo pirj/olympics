@@ -35,7 +35,7 @@
 
     #tabs_content
       .tab_content.active
-        - events.decorate.each_slice(2) do |event_pair|
+        - events.each_slice(2) do |event_pair|
           span.calendar_news
             - event_pair.each do |event|
               p.calendar_one_news

@@ -13,6 +13,7 @@ gem 'enumerize'
 # gem 'squeel'
 gem 'aasm'
 gem 'validates_email_format_of'
+gem 'active_null'
 
 gem 'sass-rails'
 gem 'coffee-rails'
