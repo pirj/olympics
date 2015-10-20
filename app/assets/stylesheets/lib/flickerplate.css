@@ -52,6 +52,8 @@
     font-size: 70px;
     width: 700px;
     text-transform: uppercase;
+    font-weight: 300;                                                              
+    font-family: 'Roboto', sans-serif;
 }
 
 @media only screen and (min-width: 43.813em) {
