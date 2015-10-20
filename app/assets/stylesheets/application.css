@@ -10,6 +10,10 @@
   text-align: left;
 }
 
+.flickerplate ul.flicks>li .flick-title {
+  line-height: normal;
+}
+
 #tabs li {
   margin: 0 10px 0 0;
 }
