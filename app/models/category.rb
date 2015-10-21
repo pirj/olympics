@@ -1,6 +1,9 @@
 class Category < ActiveRecord::Base
+  extend ActiveNull
   extend Enumerize
   include Departments
+
+  null_model
 
   validates :title, presence: true
 

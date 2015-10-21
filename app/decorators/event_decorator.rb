@@ -13,6 +13,10 @@ class EventDecorator < Draper::Decorator
     end
   end
 
+  def category
+    (object.category || Category.null).decorate
+  end
+
   def subject
     (object.subject || Subject.null).decorate
   end

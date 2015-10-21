@@ -20,7 +20,7 @@ ActiveAdmin.register Event do
     column :external
     column :subject
     column :category do |event|
-      event.decorate.category_title
+      event.decorate.category.title
     end
     column :aasm_state do |event|
       t(event.aasm_state, scope: 'aasm.event.state')
@@ -125,7 +125,7 @@ ActiveAdmin.register Event do
           row :external
           row :subject
           row :category do |event|
-            event.decorate.category_title
+            event.decorate.category.title
           end
           row :aasm_state do |event|
             t(event.aasm_state, scope: 'aasm.event.state')
